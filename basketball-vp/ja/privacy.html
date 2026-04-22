@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フープ練習 — プライバシーポリシー</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; サポート</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <span class="lang-toggle active">日本語</span>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+      </div>
+    </div>
+
+    <h1>フープ練習 — プライバシーポリシー</h1>
+    <p class="meta">最終更新: 2026年4月22日 &middot; バージョン 1.0</p>
+
+    <h2>概要</h2>
+    <p>
+      「フープ練習」（以下「本アプリ」）は、すべてのユーザーのプライバシーを尊重し保護します。
+      本アプリはデータ最小化の原則に従い、個人を特定できる情報を一切収集・アップロード・共有しません。
+    </p>
+
+    <h2>収集しない情報</h2>
+    <ul>
+      <li>個人を特定できる情報（氏名、メールアドレス、電話番号、位置情報など）を一切<strong>収集しません</strong></li>
+      <li>サードパーティの分析、広告、トラッキング SDK を一切<strong>使用しません</strong></li>
+      <li>連絡先、写真、ファイル、その他のアプリデータに<strong>アクセスしません</strong></li>
+      <li>ハンドトラッキングの生体データを<strong>保存しません</strong></li>
+    </ul>
+
+    <h2>ローカルデータ</h2>
+    <p>
+      本アプリは、練習データ（シュート回数、命中率、練習時間）をお使いのデバイス内にのみ保存します。
+      これらのデータは本アプリ内で練習統計を表示する目的でのみ使用され、<strong>デバイスの外に出ることはありません</strong>。
+      本アプリをアンインストールすると、これらのデータは完全に削除されます。
+    </p>
+
+    <h2>権限について</h2>
+    <ul>
+      <li><strong>ハンドトラッキング (Hand Tracking)：</strong>シュート動作とジェスチャー入力を検出するために使用します。すべての手のデータはデバイス上でリアルタイムに処理され、記録・アップロードされることはありません。</li>
+      <li><strong>空間認識 (World Sensing)：</strong>仮想ゴールを実際の壁に貼り付けるために使用します。環境データはデバイス上でリアルタイムに使用されるのみで、記録・アップロードされることはありません。</li>
+    </ul>
+
+    <h2>お子様のプライバシー</h2>
+    <p>本アプリは 13 歳未満のお子様を対象としておらず、意図的にその情報を収集することはありません。</p>
+
+    <h2>ポリシーの変更</h2>
+    <p>
+      本プライバシーポリシーが今後変更される場合、本ページを更新し、ページ上部の「最終更新」の日付を改訂します。
+      定期的に本ページをご確認いただくことをお勧めします。
+    </p>
+
+    <h2>お問い合わせ</h2>
+    <p>
+      本プライバシーポリシーに関するご質問は、以下のメールアドレスまでお寄せください：
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

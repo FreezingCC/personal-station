@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoop Practice — Support</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="../../">&larr; FreezingCC</a>
+      </div>
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <span class="lang-toggle active">English</span>
+        <a href="../ja/" class="lang-toggle">日本語</a>
+        <a href="../ko/" class="lang-toggle">한국어</a>
+      </div>
+    </div>
+
+    <h1>Hoop Practice — Support</h1>
+    <p class="meta">Last updated: April 22, 2026 &middot; Version 1.0</p>
+
+    <p class="intro">
+      Hoop Practice is a basketball shooting practice app for Apple Vision Pro.
+      This page provides support information, frequently asked questions, and how to contact us.
+    </p>
+
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p class="hint">For questions, bug reports, or feedback, please email:</p>
+      <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
+      <p class="response">We typically respond within 1–2 business days.</p>
+    </div>
+
+    <h2>System Requirements</h2>
+    <ul>
+      <li><strong>Device:</strong> Apple Vision Pro</li>
+      <li><strong>OS:</strong> visionOS 26 or later</li>
+      <li><strong>Space:</strong> A clear area of at least 3m × 3m is recommended</li>
+      <li><strong>Permissions:</strong> Hand tracking and world sensing must be allowed</li>
+    </ul>
+
+    <h2>Getting Started</h2>
+    <ol>
+      <li>Launch Hoop Practice from your visionOS Home View.</li>
+      <li>When prompted, allow hand tracking and world sensing permissions.</li>
+      <li>Face a clear wall so the app can detect it and place the virtual hoop.</li>
+      <li>Make a shooting motion with your hand — the app detects and tracks each shot in real time.</li>
+    </ol>
+
+    <h2>FAQ</h2>
+    <ul>
+      <li><strong>Shots not detected?</strong> Make sure your environment has adequate lighting and recalibrate hand tracking.</li>
+      <li><strong>Hoop won't attach to the wall?</strong> Use the app in a reasonably open room with the wall clearly visible and unobstructed.</li>
+      <li><strong>App crashes?</strong> Restart your device and ensure visionOS is up to date.</li>
+      <li><strong>Is my data uploaded?</strong> No. All training data is stored only on your device and is never uploaded to the cloud.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <p>See our <a href="privacy.html">Privacy Policy</a>.</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

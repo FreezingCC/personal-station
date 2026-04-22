@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>훕 연습 — 개인정보 처리방침</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; 지원</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <span class="lang-toggle active">한국어</span>
+      </div>
+    </div>
+
+    <h1>훕 연습 — 개인정보 처리방침</h1>
+    <p class="meta">최종 업데이트: 2026년 4월 22일 &middot; 버전 1.0</p>
+
+    <h2>개요</h2>
+    <p>
+      「훕 연습」(이하 "본 앱")은 모든 사용자의 개인정보를 존중하고 보호합니다.
+      본 앱은 데이터 최소화 원칙에 따라 설계되었으며, 개인 식별 정보를 수집・업로드・공유하지 않습니다.
+    </p>
+
+    <h2>수집하지 않는 정보</h2>
+    <ul>
+      <li>개인 식별 정보(이름, 이메일, 전화번호, 위치 정보 등)를 일절 <strong>수집하지 않습니다</strong></li>
+      <li>제3자 분석, 광고, 트래킹 SDK를 일절 <strong>사용하지 않습니다</strong></li>
+      <li>연락처, 사진, 파일 또는 기타 앱 데이터에 <strong>접근하지 않습니다</strong></li>
+      <li>핸드 트래킹의 원시 생체 정보를 <strong>저장하지 않습니다</strong></li>
+    </ul>
+
+    <h2>로컬 데이터</h2>
+    <p>
+      본 앱은 연습 데이터(슈팅 횟수, 명중률, 연습 시간)를 사용자의 기기 내에만 저장합니다.
+      이 데이터는 앱 내에서 연습 통계를 표시하는 용도로만 사용되며 <strong>기기 밖으로 나가지 않습니다</strong>.
+      앱을 삭제하면 데이터가 완전히 제거됩니다.
+    </p>
+
+    <h2>권한 설명</h2>
+    <ul>
+      <li><strong>핸드 트래킹 (Hand Tracking):</strong> 슈팅 동작과 제스처 입력을 감지하는 데 사용됩니다. 모든 손 데이터는 기기에서 실시간으로 처리되며 기록되거나 업로드되지 않습니다.</li>
+      <li><strong>공간 인식 (World Sensing):</strong> 가상 골대를 실제 벽에 부착하는 데 사용됩니다. 환경 데이터는 기기에서 실시간으로만 사용되며 기록되거나 업로드되지 않습니다.</li>
+    </ul>
+
+    <h2>아동 개인정보</h2>
+    <p>본 앱은 13세 미만 아동을 대상으로 하지 않으며, 해당 아동의 정보를 알고 수집하지 않습니다.</p>
+
+    <h2>정책 변경</h2>
+    <p>
+      본 개인정보 처리방침이 변경되는 경우, 본 페이지를 업데이트하고 상단의 "최종 업데이트" 날짜를 수정합니다.
+      본 페이지를 정기적으로 확인하시기 바랍니다.
+    </p>
+
+    <h2>문의</h2>
+    <p>
+      본 개인정보 처리방침에 관한 문의는 아래 이메일로 보내주세요:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
