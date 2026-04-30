@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,62 +91,63 @@
     <div class="top-bar">
       <div class="lang-group">
         <a href="../" class="lang-toggle">中文</a>
-        <span class="lang-toggle active">English</span>
+        <a href="../en/" class="lang-toggle">English</a>
         <a href="../ja/" class="lang-toggle">日本語</a>
         <a href="../ko/" class="lang-toggle">한국어</a>
         <a href="../de/" class="lang-toggle">Deutsch</a>
         <a href="../fr/" class="lang-toggle">Français</a>
         <a href="../es/" class="lang-toggle">Español</a>
         <a href="../pt/" class="lang-toggle">Português</a>
-        <a href="../da/" class="lang-toggle">Dansk</a>
+        <span class="lang-toggle active">Dansk</span>
         <a href="../ru/" class="lang-toggle">Русский</a>
       </div>
     </div>
 
     <h1>Burrow — Support</h1>
-    <p class="meta">Last updated: April 30, 2026 &middot; Version 1.0</p>
+    <p class="meta">Sidst opdateret: 30. april 2026 &middot; Version 1.0</p>
 
     <p class="intro">
-      Burrow is an iOS / iPadOS client that lets you <strong>bring your own frp server</strong> and securely reach your home computer, NAS, or other remote devices from your phone or tablet.
-      It bundles an embedded frp client (stcp visitor mode) and a pure-Swift SSH / SFTP client, with command snippets, Runbooks, and a file browser built in.
-      No accounts, no backend, no subscription &mdash; one-time purchase. This page provides support information, frequently asked questions, and how to contact us.
+      Burrow er en iOS- / iPadOS-app, hvor du <strong>medbringer din egen frp-server</strong> og sikkert tilgår din hjemmecomputer, dit NAS eller andre fjernenheder fra iPhone eller iPad.
+      Den indeholder en indbygget frp-klient (stcp visitor-tilstand) og en SSH- / SFTP-klient skrevet i ren Swift, med kommandofavoritter, Runbooks og en filbrowser indbygget.
+      Ingen konto, ingen back-end, intet abonnement &mdash; engangskøb.
+      Denne side giver supportoplysninger, ofte stillede spørgsmål og kontaktoplysninger.
     </p>
 
-    <h2>Contact Us</h2>
+    <h2>Kontakt os</h2>
     <div class="contact-box">
-      <p class="hint">For questions, bug reports, or feedback, please email:</p>
+      <p class="hint">Skriv til os, hvis du har spørgsmål, fejlrapporter eller forslag:</p>
       <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
-      <p class="response">We typically respond within 1&ndash;2 business days.</p>
+      <p class="response">Vi svarer typisk inden for 1&ndash;2 hverdage.</p>
     </div>
 
-    <h2>System Requirements</h2>
+    <h2>Systemkrav</h2>
     <ul>
-      <li><strong>Device:</strong> iPhone or iPad</li>
-      <li><strong>OS:</strong> iOS / iPadOS 17.0 or later</li>
-      <li><strong>frp server:</strong> An frps instance that you deploy yourself (v0.52 or later recommended)</li>
-      <li><strong>Target device:</strong> Your home computer / NAS running frpc (stcp visitee) plus an SSH service (port 22 by default)</li>
+      <li><strong>Enhed:</strong> iPhone eller iPad</li>
+      <li><strong>OS:</strong> iOS / iPadOS 17.0 eller nyere</li>
+      <li><strong>frp-server:</strong> en frps-instans, du selv hoster (v0.52 eller nyere anbefales)</li>
+      <li><strong>Målenhed:</strong> din hjemmecomputer / NAS, der kører frpc (stcp visitee) samt en SSH-tjeneste (port 22 som standard)</li>
     </ul>
 
-    <h2>Getting Started</h2>
+    <h2>Kom i gang</h2>
     <ol>
-      <li>Deploy frps on a server with a public IP. Note its <code>bindPort</code> and <code>auth.token</code>.</li>
-      <li>On the device you want to reach (computer / NAS), run frpc in <strong>stcp visitee</strong> mode to expose its local SSH (port 22) through the tunnel, and configure a pre-shared <code>secretKey</code>.</li>
-      <li>Open Burrow and create a connection: enter the frps address, token, visitee name, the same <code>secretKey</code>, and the SSH username / password for the target machine.</li>
-      <li>Tap the connection to enter the command shell or the SFTP file browser. Save frequently used commands as snippets or as a Runbook for one-tap reuse.</li>
+      <li>Installér frps på en server med offentlig IP. Notér <code>bindPort</code> og <code>auth.token</code>.</li>
+      <li>Start frpc i <strong>stcp visitee</strong>-tilstand på målenheden (computer / NAS), så den lokale SSH (port 22) eksponeres gennem tunnellen, og opsæt en delt <code>secretKey</code>.</li>
+      <li>Åbn Burrow, og opret en forbindelse: frps-adresse, token, visitee-navn, samme <code>secretKey</code> samt SSH-brugernavn / -kodeord til målmaskinen.</li>
+      <li>Tryk på forbindelsen for at åbne kommandoshellen eller SFTP-filbrowseren. Gem ofte brugte kommandoer som favoritter eller som en Runbook for hurtig genbrug.</li>
     </ol>
 
-    <h2>FAQ</h2>
+    <h2>Ofte stillede spørgsmål</h2>
     <ul>
-      <li><strong>Tunnel won't connect?</strong> Verify that the frps port is reachable on the public internet, that the token matches your server config, and that your network isn't blocking the frps port.</li>
-      <li><strong>Can't see the target device?</strong> Make sure the visitee-side frpc process is still running and that its <code>secretKey</code> matches the one in Burrow.</li>
-      <li><strong>SSH authentication failed?</strong> v1 supports password authentication; PEM private-key auth is coming in a later release. Confirm the username / password are correct and that the target sshd allows password login.</li>
-      <li><strong>Tunnel drops when the app goes to the background?</strong> v1 only keeps the tunnel alive while Burrow is in the foreground (no NetworkExtension). Bring the app back to the foreground to reconnect.</li>
-      <li><strong>Is my data uploaded?</strong> No. Burrow has no backend, no accounts, and no third-party analytics or tracking SDKs. All connection details and commands stay on your device.</li>
-      <li><strong>Is there a subscription?</strong> No. Burrow is a one-time purchase &mdash; no IAP, no ads.</li>
+      <li><strong>Tunnellen forbinder ikke?</strong> Tjek, at frps-porten kan nås fra internettet, at token matcher serverens konfiguration, og at dit netværk ikke blokerer frps-porten.</li>
+      <li><strong>Kan ikke se målenheden?</strong> Sørg for, at frpc-processen på visitee-siden stadig kører, og at <code>secretKey</code> matcher den, du har skrevet i Burrow.</li>
+      <li><strong>SSH-godkendelsen mislykkes?</strong> v1 understøtter godkendelse med kodeord; godkendelse med PEM-nøgle kommer i en senere version. Tjek brugernavn / kodeord, og at mål-sshd tillader login med kodeord.</li>
+      <li><strong>Tunnellen droppes, når app'en går i baggrunden?</strong> v1 holder kun tunnellen i live i forgrunden (ingen NetworkExtension). Bring Burrow tilbage til forgrunden for at genoprette forbindelsen.</li>
+      <li><strong>Bliver mine data uploadet?</strong> Nej. Burrow har ingen back-end, ingen konti og ingen tredjeparts-SDK'er til analyse eller sporing. Alle forbindelsesoplysninger og kommandoer forbliver på din enhed.</li>
+      <li><strong>Er der et abonnement?</strong> Nej. Burrow er et engangskøb &mdash; uden in-app-køb og uden reklamer.</li>
     </ul>
 
-    <h2>Privacy</h2>
-    <p>See our <a href="privacy.html">Privacy Policy</a>.</p>
+    <h2>Privatliv</h2>
+    <p>Se vores <a href="privacy.html">privatlivspolitik</a>.</p>
 
     <footer>
       <p>&copy; 2026 FreezingCC. All rights reserved.</p>

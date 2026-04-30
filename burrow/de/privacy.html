@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Datenschutzerklärung</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Support</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+        <span class="lang-toggle active">Deutsch</span>
+        <a href="../fr/privacy.html" class="lang-toggle">Français</a>
+        <a href="../es/privacy.html" class="lang-toggle">Español</a>
+        <a href="../pt/privacy.html" class="lang-toggle">Português</a>
+        <a href="../da/privacy.html" class="lang-toggle">Dansk</a>
+        <a href="../ru/privacy.html" class="lang-toggle">Русский</a>
+      </div>
+    </div>
+
+    <h1>Burrow — Datenschutzerklärung</h1>
+    <p class="meta">Zuletzt aktualisiert: 30. April 2026 &middot; Version 1.0</p>
+
+    <h2>Überblick</h2>
+    <p>
+      Burrow ist eine iOS-/iPadOS-App, mit der du über einen <strong>von dir selbst betriebenen</strong> frp-Server auf SSH-/SFTP-Dienste deiner eigenen Computer, NAS-Systeme und sonstigen Geräte zugreifst.
+      Burrow ist nach dem Prinzip der Datensparsamkeit entworfen und <strong>erhebt, überträgt oder teilt keinerlei personenbezogene Daten</strong>.
+    </p>
+
+    <h2>Was wir nicht erfassen</h2>
+    <ul>
+      <li>Wir erfassen <strong>nicht</strong> deine frp-Serveradresse, dein Token oder deinen vorgeteilten Schlüssel (<code>secretKey</code>).</li>
+      <li>Wir erfassen <strong>nicht</strong> deine SSH-Benutzernamen, Passwörter oder privaten Schlüssel.</li>
+      <li>Wir erfassen <strong>nicht</strong> deine Befehlsfavoriten, Runbooks oder Parameter-Verläufe.</li>
+      <li>Wir erfassen <strong>nicht</strong> die Inhalte, die du über SSH oder SFTP überträgst.</li>
+      <li>Wir verwenden <strong>keine</strong> Drittanbieter-SDKs für Analyse, Werbung, Crash-Reports oder Tracking.</li>
+      <li>Die App stellt <strong>keine</strong> HTTP-/HTTPS-Anfragen an uns oder Dritte.</li>
+    </ul>
+
+    <h2>Lokale Daten</h2>
+    <ul>
+      <li><strong>Verbindungsdaten</strong> (Maschinenname, frps-Adresse, Port, Benutzername): in SwiftData (lokales SQLite) gespeichert.</li>
+      <li><strong>Sensible Anmeldedaten</strong> (SSH-Passwörter, private Schlüssel, frp-<code>secretKey</code>, frp-Token): in der iOS-Keychain mit Schutzklasse <code>kSecAttrAccessibleAfterFirstUnlock</code> gespeichert.</li>
+      <li><strong>Befehlsfavoriten und Runbooks</strong>: in SwiftData gespeichert.</li>
+      <li><strong>Parameter-Verlauf</strong> (z. B. zuletzt verwendete PIDs oder Dateipfade): in den UserDefaults gespeichert.</li>
+    </ul>
+    <p>
+      Diese Daten laufen über keinen Server von uns (wir betreiben gar keinen).
+      Wenn du die App deinstallierst, entfernt iOS SwiftData- und UserDefaults-Daten automatisch; Keychain-Einträge werden ebenfalls mit der App entfernt.
+    </p>
+
+    <h2>Netzwerkkommunikation</h2>
+    <p>Die App stellt <strong>ausschließlich</strong> folgende Verbindungen her:</p>
+    <ul>
+      <li>zu dem von dir konfigurierten frp-Server (frps) &mdash; aufgebaut durch den eingebetteten frpc-Client; und</li>
+      <li>zu deinen eigenen Geräten via SSH / SFTP, getunnelt über die obige frp-Verbindung.</li>
+    </ul>
+    <p>Kein anderer Endpunkt wird kontaktiert: keine Telemetrie-Pings, keine Analytics, keine Werbe-Callbacks.</p>
+
+    <h2>Berechtigungen</h2>
+    <p>Die App fragt Berechtigungen nur an, wenn du die jeweilige Funktion aktiv nutzt; ungenutzte Funktionen lösen keine Abfragen aus:</p>
+    <ul>
+      <li><strong>Dateizugriff</strong> (System-Dateiauswahl): erscheint nur, wenn du aktiv auf "SFTP-Upload" tippst. Wir lesen nur die einzelne ausgewählte Datei und geben deren Security-Scope unmittelbar nach Abschluss des Uploads wieder frei.</li>
+      <li><strong>System-Teilen-Dialog</strong>: erscheint nach einem SFTP-Download, damit du selbst entscheidest, ob die Datei in Dateien, Fotos oder einer Drittanbieter-App gespeichert wird.</li>
+    </ul>
+    <p>Die App fordert <strong>keine</strong> Berechtigungen für Fotos, Standort, Kontakte, Kalender, Health usw. an. Sie nutzt keine Background Modes und keine NetworkExtension (kein VPN).</p>
+
+    <h2>Drittanbieter-Code</h2>
+    <p>Die App verwendet folgende Open-Source-Bibliotheken. Alle laufen lokal auf dem Gerät und enthalten keine eigenen Netzwerk-Callbacks:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; SSH-/SFTP-Client (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; frp-Client (Go, via gomobile eingebettet)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; Netzwerk-Primitiven (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; Kryptografie (Apple)</li>
+    </ul>
+
+    <h2>Kinder</h2>
+    <p>
+      Burrow richtet sich an Entwickler, Sysadmins und NAS-Nutzer mit technischem Hintergrund. Die App ist nicht an Kinder gerichtet, und wir erfassen wissentlich keine Daten von Kindern unter 13 Jahren.
+    </p>
+
+    <h2>Änderungen</h2>
+    <p>
+      Bei Änderungen dieser Datenschutzerklärung aktualisieren wir diese Seite und passen das Datum oben unter "Zuletzt aktualisiert" an.
+      Wir empfehlen, gelegentlich vorbeizuschauen.
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Bei Fragen zum Datenschutz schreib uns bitte:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

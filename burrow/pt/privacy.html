@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Política de Privacidade</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Suporte</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+        <a href="../de/privacy.html" class="lang-toggle">Deutsch</a>
+        <a href="../fr/privacy.html" class="lang-toggle">Français</a>
+        <a href="../es/privacy.html" class="lang-toggle">Español</a>
+        <span class="lang-toggle active">Português</span>
+        <a href="../da/privacy.html" class="lang-toggle">Dansk</a>
+        <a href="../ru/privacy.html" class="lang-toggle">Русский</a>
+      </div>
+    </div>
+
+    <h1>Burrow — Política de Privacidade</h1>
+    <p class="meta">Última atualização: 30 de abril de 2026 &middot; Versão 1.0</p>
+
+    <h2>Visão geral</h2>
+    <p>
+      O Burrow é um app para iOS / iPadOS que permite acessar, por meio de um servidor frp <strong>implantado por você mesmo</strong>, os serviços SSH / SFTP dos seus próprios computadores, NAS e demais equipamentos.
+      O Burrow é projetado segundo o princípio da minimização de dados: <strong>não coleta, não envia e não compartilha</strong> nenhuma informação pessoal identificável.
+    </p>
+
+    <h2>O que não coletamos</h2>
+    <ul>
+      <li><strong>Não</strong> coletamos o endereço do seu servidor frp, o token nem a chave compartilhada (<code>secretKey</code>).</li>
+      <li><strong>Não</strong> coletamos credenciais SSH (usuário, senha ou chaves privadas).</li>
+      <li><strong>Não</strong> coletamos seus favoritos de comandos, Runbooks ou histórico de parâmetros.</li>
+      <li><strong>Não</strong> coletamos o que você transfere via SSH ou SFTP.</li>
+      <li><strong>Não</strong> usamos SDKs de terceiros para análise, publicidade, relatos de falhas ou rastreamento.</li>
+      <li>O app <strong>não</strong> faz requisições HTTP/HTTPS para nós nem para terceiros.</li>
+    </ul>
+
+    <h2>Dados locais</h2>
+    <ul>
+      <li><strong>Dados de conexão</strong> (nome da máquina, endereço do frps, porta, usuário): armazenados em SwiftData (SQLite local).</li>
+      <li><strong>Credenciais sensíveis</strong> (senhas SSH, chaves privadas, <code>secretKey</code> e token do frp): armazenadas no Keychain do iOS com a classe de proteção <code>kSecAttrAccessibleAfterFirstUnlock</code>.</li>
+      <li><strong>Favoritos de comandos e Runbooks</strong>: em SwiftData.</li>
+      <li><strong>Histórico de parâmetros</strong> (PIDs recentes, caminhos de arquivos, etc.): em UserDefaults.</li>
+    </ul>
+    <p>
+      Esses dados não passam por nenhum servidor nosso (não operamos servidores).
+      Ao desinstalar o app, o iOS remove automaticamente os dados do SwiftData e UserDefaults; os itens do Keychain também são removidos junto com o app.
+    </p>
+
+    <h2>Comunicações de rede</h2>
+    <p>As únicas conexões de rede do app são:</p>
+    <ul>
+      <li>com o servidor frp (frps) que você configura &mdash; iniciadas pelo cliente frpc embutido; e</li>
+      <li>com seus próprios dispositivos via SSH / SFTP, encapsuladas nesse túnel frp.</li>
+    </ul>
+    <p>Nenhum outro endpoint é contatado: sem pings de telemetria, sem analytics, sem callbacks de publicidade.</p>
+
+    <h2>Permissões</h2>
+    <p>O app só solicita permissões do sistema quando você toca na funcionalidade correspondente; recursos não usados não disparam pedidos:</p>
+    <ul>
+      <li><strong>Acesso a arquivos</strong> (seletor do sistema): aparece apenas quando você toca em "Enviar via SFTP". Lemos somente o arquivo selecionado e liberamos o escopo de segurança assim que o envio termina.</li>
+      <li><strong>Folha de compartilhamento do sistema</strong>: aparece após um download SFTP, para que você decida se salva o arquivo em Arquivos, Fotos ou outro app.</li>
+    </ul>
+    <p>O app <strong>não</strong> solicita acesso a Fotos, Localização, Contatos, Calendário, Saúde, etc. Não usa Background Modes nem NetworkExtension (sem VPN).</p>
+
+    <h2>Código de terceiros</h2>
+    <p>O app usa as seguintes bibliotecas de código aberto. Todas executam localmente, sem callbacks de rede próprios:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; cliente SSH / SFTP (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; cliente frp (Go, embutido via gomobile)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; primitivas de rede (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; criptografia (Apple)</li>
+    </ul>
+
+    <h2>Privacidade de crianças</h2>
+    <p>
+      O Burrow é destinado a desenvolvedores, administradores de sistemas e usuários de NAS com alguma base técnica. Não é direcionado a crianças e não coletamos intencionalmente informações de menores de 13 anos.
+    </p>
+
+    <h2>Alterações</h2>
+    <p>
+      Caso esta política mude, atualizaremos esta página e a data de "Última atualização" no topo.
+      Recomendamos revisitá-la periodicamente.
+    </p>
+
+    <h2>Contato</h2>
+    <p>
+      Para questões de privacidade, escreva para:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

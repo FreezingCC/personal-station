@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Privatlivspolitik</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Support</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+        <a href="../de/privacy.html" class="lang-toggle">Deutsch</a>
+        <a href="../fr/privacy.html" class="lang-toggle">Français</a>
+        <a href="../es/privacy.html" class="lang-toggle">Español</a>
+        <a href="../pt/privacy.html" class="lang-toggle">Português</a>
+        <span class="lang-toggle active">Dansk</span>
+        <a href="../ru/privacy.html" class="lang-toggle">Русский</a>
+      </div>
+    </div>
+
+    <h1>Burrow — Privatlivspolitik</h1>
+    <p class="meta">Sidst opdateret: 30. april 2026 &middot; Version 1.0</p>
+
+    <h2>Oversigt</h2>
+    <p>
+      Burrow er en iOS- / iPadOS-app, hvor du via en frp-server, som du <strong>selv hoster</strong>, tilgår SSH- / SFTP-tjenester på dine egne computere, NAS-enheder osv.
+      Burrow er designet efter princippet om dataminimering: vi <strong>indsamler, sender og deler ikke</strong> nogen personhenførbare oplysninger.
+    </p>
+
+    <h2>Hvad vi ikke indsamler</h2>
+    <ul>
+      <li>Vi indsamler <strong>ikke</strong> adressen på din frp-server, dit token eller din delte nøgle (<code>secretKey</code>).</li>
+      <li>Vi indsamler <strong>ikke</strong> dine SSH-loginoplysninger (brugernavn, kodeord eller private nøgler).</li>
+      <li>Vi indsamler <strong>ikke</strong> dine kommandofavoritter, Runbooks eller parameterhistorik.</li>
+      <li>Vi indsamler <strong>ikke</strong> det, du overfører via SSH eller SFTP.</li>
+      <li>Vi bruger <strong>ingen</strong> tredjeparts-SDK'er til analyse, annoncering, fejlrapportering eller sporing.</li>
+      <li>App'en sender <strong>ingen</strong> HTTP-/HTTPS-anmodninger til os eller tredjeparter.</li>
+    </ul>
+
+    <h2>Lokale data</h2>
+    <ul>
+      <li><strong>Forbindelsesdata</strong> (maskinnavn, frps-adresse, port, brugernavn): gemt i SwiftData (lokal SQLite).</li>
+      <li><strong>Følsomme legitimationsoplysninger</strong> (SSH-kodeord, private nøgler, frp-<code>secretKey</code>, frp-token): gemt i iOS Keychain med beskyttelsesklassen <code>kSecAttrAccessibleAfterFirstUnlock</code>.</li>
+      <li><strong>Kommandofavoritter og Runbooks</strong>: gemt i SwiftData.</li>
+      <li><strong>Parameterhistorik</strong> (fx senest brugte PIDs eller filstier): gemt i UserDefaults.</li>
+    </ul>
+    <p>
+      Ingen af disse data passerer en server hos os (vi har ingen).
+      Når du afinstallerer app'en, fjerner iOS automatisk SwiftData- og UserDefaults-data; Keychain-poster fjernes også sammen med app'en.
+    </p>
+
+    <h2>Netværkskommunikation</h2>
+    <p>App'ens netværksforbindelser er <strong>begrænset til</strong>:</p>
+    <ul>
+      <li>frp-serveren (frps), du har konfigureret &mdash; oprettet af den indbyggede frpc-klient; og</li>
+      <li>dine egne enheder via SSH / SFTP, tunnelleret gennem den frp-forbindelse.</li>
+    </ul>
+    <p>Ingen andre endepunkter kontaktes: ingen telemetri, ingen analyse, ingen reklamekald.</p>
+
+    <h2>Tilladelser</h2>
+    <p>App'en beder kun om systemtilladelser, når du selv aktiverer den relevante funktion; ubrugte funktioner udløser ingen anmodninger:</p>
+    <ul>
+      <li><strong>Filadgang</strong> (systemets filvælger): vises kun, når du selv trykker "SFTP-upload". Vi læser kun den fil, du vælger, og frigiver dens security scope, så snart uploaden er færdig.</li>
+      <li><strong>Systemets delingsark</strong>: vises efter en SFTP-download, så du selv kan vælge at gemme filen i Filer, Fotos eller en tredjepartsapp.</li>
+    </ul>
+    <p>App'en beder <strong>ikke</strong> om adgang til Fotos, Lokation, Kontakter, Kalender, Sundhed osv. Den bruger ingen Background Modes og ingen NetworkExtension (ingen VPN).</p>
+
+    <h2>Tredjepartskode</h2>
+    <p>App'en bruger følgende open source-biblioteker. Alle kører lokalt på enheden uden egne netværkskald:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; SSH- / SFTP-klient (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; frp-klient (Go, indlejret via gomobile)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; netværksprimitiver (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; kryptografi (Apple)</li>
+    </ul>
+
+    <h2>Børns privatliv</h2>
+    <p>
+      Burrow henvender sig til udviklere, sysadmins og NAS-brugere med en vis teknisk baggrund. Den er ikke målrettet børn, og vi indsamler ikke bevidst oplysninger om børn under 13 år.
+    </p>
+
+    <h2>Ændringer</h2>
+    <p>
+      Hvis denne politik ændres, opdaterer vi denne side og datoen "Sidst opdateret" øverst.
+      Vi anbefaler, at du tjekker tilbage med jævne mellemrum.
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      Spørgsmål om privatliv kan sendes til:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Политика конфиденциальности</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Поддержка</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+        <a href="../de/privacy.html" class="lang-toggle">Deutsch</a>
+        <a href="../fr/privacy.html" class="lang-toggle">Français</a>
+        <a href="../es/privacy.html" class="lang-toggle">Español</a>
+        <a href="../pt/privacy.html" class="lang-toggle">Português</a>
+        <a href="../da/privacy.html" class="lang-toggle">Dansk</a>
+        <span class="lang-toggle active">Русский</span>
+      </div>
+    </div>
+
+    <h1>Burrow — Политика конфиденциальности</h1>
+    <p class="meta">Последнее обновление: 30 апреля 2026 г. &middot; Версия 1.0</p>
+
+    <h2>Обзор</h2>
+    <p>
+      Burrow &mdash; это приложение для iOS / iPadOS, которое позволяет через frp-сервер, <strong>развёрнутый вами самостоятельно</strong>, подключаться к SSH/SFTP-сервисам ваших собственных компьютеров, NAS и других устройств.
+      Приложение спроектировано по принципу минимизации данных: оно <strong>не собирает, не передаёт и не разглашает</strong> никаких персональных данных.
+    </p>
+
+    <h2>Что мы не собираем</h2>
+    <ul>
+      <li>Мы <strong>не собираем</strong> адрес вашего frp-сервера, токен и общий ключ (<code>secretKey</code>).</li>
+      <li>Мы <strong>не собираем</strong> ваши учётные данные SSH (имя пользователя, пароль, приватные ключи).</li>
+      <li>Мы <strong>не собираем</strong> ваши избранные команды, Runbooks и историю параметров.</li>
+      <li>Мы <strong>не собираем</strong> то, что вы передаёте по SSH или SFTP.</li>
+      <li>Мы <strong>не используем</strong> сторонние SDK для аналитики, рекламы, отчётов о сбоях или отслеживания.</li>
+      <li>Приложение <strong>не делает</strong> HTTP/HTTPS-запросов к нам или к третьим сторонам.</li>
+    </ul>
+
+    <h2>Локальные данные</h2>
+    <ul>
+      <li><strong>Данные подключений</strong> (имя машины, адрес frps, порт, имя пользователя): хранятся в SwiftData (локальная SQLite).</li>
+      <li><strong>Чувствительные учётные данные</strong> (пароли SSH, приватные ключи, <code>secretKey</code> и токен frp): хранятся в iOS Keychain с классом защиты <code>kSecAttrAccessibleAfterFirstUnlock</code>.</li>
+      <li><strong>Избранные команды и Runbooks</strong>: хранятся в SwiftData.</li>
+      <li><strong>История параметров</strong> (например, недавно использованные PIDs или пути к файлам): хранится в UserDefaults.</li>
+    </ul>
+    <p>
+      Эти данные не проходят ни через один наш сервер (мы их попросту не держим).
+      После удаления приложения iOS автоматически очищает данные SwiftData и UserDefaults; элементы Keychain также удаляются вместе с приложением.
+    </p>
+
+    <h2>Сетевые соединения</h2>
+    <p>Сетевые соединения приложения <strong>ограничены</strong>:</p>
+    <ul>
+      <li>frp-сервером (frps), указанным в настройках подключения, &mdash; их инициирует встроенный клиент frpc;</li>
+      <li>вашими собственными устройствами по SSH / SFTP, туннелируемыми через указанное frp-соединение.</li>
+    </ul>
+    <p>Никакие другие конечные точки не вызываются: никакой телеметрии, никакой аналитики, никаких рекламных коллбэков.</p>
+
+    <h2>Разрешения</h2>
+    <p>Приложение запрашивает системные разрешения только в момент использования соответствующей функции; неиспользуемые функции ничего не запрашивают:</p>
+    <ul>
+      <li><strong>Доступ к файлам</strong> (системный выбор файлов): отображается только при активном нажатии «SFTP-загрузка». Мы читаем лишь выбранный вами файл и освобождаем его security scope сразу после завершения загрузки.</li>
+      <li><strong>Системный лист «Поделиться»</strong>: отображается после SFTP-загрузки, чтобы вы сами решили, сохранить файл в Файлы, Фото или другое приложение.</li>
+    </ul>
+    <p>Приложение <strong>не</strong> запрашивает доступ к Фото, Геолокации, Контактам, Календарю, Здоровью и т. п. Оно не использует Background Modes и NetworkExtension (без VPN).</p>
+
+    <h2>Сторонний код</h2>
+    <p>Приложение использует следующие открытые библиотеки. Все они работают локально на устройстве и не имеют собственных сетевых вызовов:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; SSH/SFTP-клиент (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; frp-клиент (Go, встроен через gomobile)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; сетевые примитивы (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; криптография (Apple)</li>
+    </ul>
+
+    <h2>Конфиденциальность детей</h2>
+    <p>
+      Burrow рассчитан на разработчиков, системных администраторов и пользователей NAS с определённой технической подготовкой. Приложение не ориентировано на детей, и мы сознательно не собираем сведения о лицах младше 13 лет.
+    </p>
+
+    <h2>Изменения</h2>
+    <p>
+      В случае изменения данной политики мы обновим эту страницу и дату «Последнее обновление» вверху.
+      Рекомендуем периодически возвращаться к ней.
+    </p>
+
+    <h2>Связаться с нами</h2>
+    <p>
+      По вопросам конфиденциальности пишите нам:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

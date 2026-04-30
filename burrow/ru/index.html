@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Поддержка</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; margin-right: auto; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <a href="../en/" class="lang-toggle">English</a>
+        <a href="../ja/" class="lang-toggle">日本語</a>
+        <a href="../ko/" class="lang-toggle">한국어</a>
+        <a href="../de/" class="lang-toggle">Deutsch</a>
+        <a href="../fr/" class="lang-toggle">Français</a>
+        <a href="../es/" class="lang-toggle">Español</a>
+        <a href="../pt/" class="lang-toggle">Português</a>
+        <a href="../da/" class="lang-toggle">Dansk</a>
+        <span class="lang-toggle active">Русский</span>
+      </div>
+    </div>
+
+    <h1>Burrow — Поддержка</h1>
+    <p class="meta">Последнее обновление: 30 апреля 2026 г. &middot; Версия 1.0</p>
+
+    <p class="intro">
+      Burrow &mdash; это приложение для iOS / iPadOS, которое позволяет <strong>использовать ваш собственный frp-сервер</strong> и безопасно подключаться с iPhone или iPad к домашнему компьютеру, NAS или другим удалённым устройствам.
+      В приложение встроен frp-клиент (режим stcp visitor) и SSH/SFTP-клиент на чистом Swift, с избранными командами, Runbooks и файловым менеджером.
+      Без аккаунтов, без серверной части, без подписки &mdash; разовая покупка.
+      На этой странице собраны информация поддержки, ответы на частые вопросы и контакты.
+    </p>
+
+    <h2>Контакты</h2>
+    <div class="contact-box">
+      <p class="hint">По вопросам, отчётам об ошибках и предложениям пишите на:</p>
+      <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
+      <p class="response">Обычно отвечаем в течение 1&ndash;2 рабочих дней.</p>
+    </div>
+
+    <h2>Системные требования</h2>
+    <ul>
+      <li><strong>Устройство:</strong> iPhone или iPad</li>
+      <li><strong>ОС:</strong> iOS / iPadOS 17.0 или новее</li>
+      <li><strong>frp-сервер:</strong> ваш собственный экземпляр frps (рекомендуется v0.52 или новее)</li>
+      <li><strong>Целевое устройство:</strong> ваш домашний компьютер / NAS, на котором запущен frpc (stcp visitee) и SSH-сервис (по умолчанию порт 22)</li>
+    </ul>
+
+    <h2>Начало работы</h2>
+    <ol>
+      <li>Разверните frps на сервере с публичным IP. Запишите <code>bindPort</code> и <code>auth.token</code>.</li>
+      <li>На целевом устройстве (компьютере / NAS) запустите frpc в режиме <strong>stcp visitee</strong>, чтобы пробросить локальный SSH (порт 22) через туннель, и задайте общий <code>secretKey</code>.</li>
+      <li>Откройте Burrow и создайте подключение: адрес frps, token, имя visitee, тот же <code>secretKey</code>, а также имя пользователя и пароль SSH целевой машины.</li>
+      <li>Нажмите на подключение, чтобы открыть командную оболочку или SFTP-менеджер. Часто используемые команды можно сохранять в избранное или в Runbook для повторного запуска одним касанием.</li>
+    </ol>
+
+    <h2>Частые вопросы</h2>
+    <ul>
+      <li><strong>Туннель не подключается?</strong> Проверьте, что порт frps доступен из интернета, что token совпадает с конфигурацией сервера и что ваша сеть не блокирует этот порт.</li>
+      <li><strong>Не видно целевое устройство?</strong> Убедитесь, что процесс frpc на стороне visitee всё ещё запущен и что его <code>secretKey</code> совпадает с тем, что введён в Burrow.</li>
+      <li><strong>Ошибка SSH-аутентификации?</strong> v1 поддерживает аутентификацию по паролю; аутентификация по приватному ключу PEM появится в более поздней версии. Проверьте имя пользователя и пароль и убедитесь, что целевой sshd разрешает вход по паролю.</li>
+      <li><strong>Туннель обрывается, когда приложение уходит в фон?</strong> v1 поддерживает туннель только в активном режиме (без NetworkExtension). Верните Burrow на передний план, чтобы переподключиться.</li>
+      <li><strong>Загружаются ли мои данные?</strong> Нет. У Burrow нет серверной части, нет аккаунтов и нет сторонних SDK для аналитики или трекинга. Все настройки подключений и команды остаются на вашем устройстве.</li>
+      <li><strong>Есть ли подписка?</strong> Нет. Burrow &mdash; разовая покупка, без встроенных покупок и без рекламы.</li>
+    </ul>
+
+    <h2>Конфиденциальность</h2>
+    <p>См. нашу <a href="privacy.html">политику конфиденциальности</a>.</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

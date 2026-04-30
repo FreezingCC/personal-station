@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burrow — Support</title>
+  <title>Burrow — Soporte</title>
   <style>
     :root {
       --bg: #fafafa;
@@ -91,62 +91,63 @@
     <div class="top-bar">
       <div class="lang-group">
         <a href="../" class="lang-toggle">中文</a>
-        <span class="lang-toggle active">English</span>
+        <a href="../en/" class="lang-toggle">English</a>
         <a href="../ja/" class="lang-toggle">日本語</a>
         <a href="../ko/" class="lang-toggle">한국어</a>
         <a href="../de/" class="lang-toggle">Deutsch</a>
         <a href="../fr/" class="lang-toggle">Français</a>
-        <a href="../es/" class="lang-toggle">Español</a>
+        <span class="lang-toggle active">Español</span>
         <a href="../pt/" class="lang-toggle">Português</a>
         <a href="../da/" class="lang-toggle">Dansk</a>
         <a href="../ru/" class="lang-toggle">Русский</a>
       </div>
     </div>
 
-    <h1>Burrow — Support</h1>
-    <p class="meta">Last updated: April 30, 2026 &middot; Version 1.0</p>
+    <h1>Burrow — Soporte</h1>
+    <p class="meta">Última actualización: 30 de abril de 2026 &middot; Versión 1.0</p>
 
     <p class="intro">
-      Burrow is an iOS / iPadOS client that lets you <strong>bring your own frp server</strong> and securely reach your home computer, NAS, or other remote devices from your phone or tablet.
-      It bundles an embedded frp client (stcp visitor mode) and a pure-Swift SSH / SFTP client, with command snippets, Runbooks, and a file browser built in.
-      No accounts, no backend, no subscription &mdash; one-time purchase. This page provides support information, frequently asked questions, and how to contact us.
+      Burrow es una app para iOS / iPadOS que te permite <strong>usar tu propio servidor frp</strong> y acceder de forma segura a tu ordenador, NAS u otros equipos remotos desde el iPhone o el iPad.
+      Incluye un cliente frp embebido (modo stcp visitor) y un cliente SSH / SFTP en Swift puro, con favoritos de comandos, Runbooks y explorador de archivos integrados.
+      Sin cuentas, sin back-end, sin suscripción &mdash; pago único.
+      Esta página reúne información de soporte, preguntas frecuentes y datos de contacto.
     </p>
 
-    <h2>Contact Us</h2>
+    <h2>Contacto</h2>
     <div class="contact-box">
-      <p class="hint">For questions, bug reports, or feedback, please email:</p>
+      <p class="hint">Si tienes preguntas, informes de fallos o sugerencias, escríbenos:</p>
       <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
-      <p class="response">We typically respond within 1&ndash;2 business days.</p>
+      <p class="response">Solemos responder en 1 o 2 días laborables.</p>
     </div>
 
-    <h2>System Requirements</h2>
+    <h2>Requisitos del sistema</h2>
     <ul>
-      <li><strong>Device:</strong> iPhone or iPad</li>
-      <li><strong>OS:</strong> iOS / iPadOS 17.0 or later</li>
-      <li><strong>frp server:</strong> An frps instance that you deploy yourself (v0.52 or later recommended)</li>
-      <li><strong>Target device:</strong> Your home computer / NAS running frpc (stcp visitee) plus an SSH service (port 22 by default)</li>
+      <li><strong>Dispositivo:</strong> iPhone o iPad</li>
+      <li><strong>OS:</strong> iOS / iPadOS 17.0 o superior</li>
+      <li><strong>Servidor frp:</strong> una instancia de frps que despliegues tú mismo (se recomienda v0.52 o superior)</li>
+      <li><strong>Equipo de destino:</strong> tu ordenador / NAS ejecutando frpc (stcp visitee) más un servicio SSH (puerto 22 por defecto)</li>
     </ul>
 
-    <h2>Getting Started</h2>
+    <h2>Primeros pasos</h2>
     <ol>
-      <li>Deploy frps on a server with a public IP. Note its <code>bindPort</code> and <code>auth.token</code>.</li>
-      <li>On the device you want to reach (computer / NAS), run frpc in <strong>stcp visitee</strong> mode to expose its local SSH (port 22) through the tunnel, and configure a pre-shared <code>secretKey</code>.</li>
-      <li>Open Burrow and create a connection: enter the frps address, token, visitee name, the same <code>secretKey</code>, and the SSH username / password for the target machine.</li>
-      <li>Tap the connection to enter the command shell or the SFTP file browser. Save frequently used commands as snippets or as a Runbook for one-tap reuse.</li>
+      <li>Despliega frps en un servidor con IP pública. Anota su <code>bindPort</code> y su <code>auth.token</code>.</li>
+      <li>En el equipo al que quieres conectar (ordenador / NAS), ejecuta frpc en modo <strong>stcp visitee</strong> para exponer el SSH local (puerto 22) a través del túnel y configura una clave compartida <code>secretKey</code>.</li>
+      <li>Abre Burrow y crea una conexión: dirección de frps, token, nombre de la visitee, la misma <code>secretKey</code> y el usuario / contraseña SSH del equipo de destino.</li>
+      <li>Toca la conexión para abrir el shell de comandos o el explorador SFTP. Guarda los comandos frecuentes como favoritos o como Runbook para reutilizarlos con un toque.</li>
     </ol>
 
-    <h2>FAQ</h2>
+    <h2>Preguntas frecuentes</h2>
     <ul>
-      <li><strong>Tunnel won't connect?</strong> Verify that the frps port is reachable on the public internet, that the token matches your server config, and that your network isn't blocking the frps port.</li>
-      <li><strong>Can't see the target device?</strong> Make sure the visitee-side frpc process is still running and that its <code>secretKey</code> matches the one in Burrow.</li>
-      <li><strong>SSH authentication failed?</strong> v1 supports password authentication; PEM private-key auth is coming in a later release. Confirm the username / password are correct and that the target sshd allows password login.</li>
-      <li><strong>Tunnel drops when the app goes to the background?</strong> v1 only keeps the tunnel alive while Burrow is in the foreground (no NetworkExtension). Bring the app back to the foreground to reconnect.</li>
-      <li><strong>Is my data uploaded?</strong> No. Burrow has no backend, no accounts, and no third-party analytics or tracking SDKs. All connection details and commands stay on your device.</li>
-      <li><strong>Is there a subscription?</strong> No. Burrow is a one-time purchase &mdash; no IAP, no ads.</li>
+      <li><strong>¿El túnel no se conecta?</strong> Comprueba que el puerto de frps sea accesible desde Internet, que el token coincida con la configuración del servidor y que tu red no bloquee el puerto frps.</li>
+      <li><strong>¿No ves el equipo de destino?</strong> Asegúrate de que el proceso frpc en el lado visitee siga en ejecución y de que su <code>secretKey</code> coincida con la introducida en Burrow.</li>
+      <li><strong>¿Falla la autenticación SSH?</strong> v1 admite autenticación por contraseña; la autenticación con clave PEM llegará en una versión posterior. Confirma usuario / contraseña y que el sshd de destino permita el inicio de sesión por contraseña.</li>
+      <li><strong>¿Se corta el túnel al pasar la app a segundo plano?</strong> v1 mantiene el túnel solo en primer plano (sin NetworkExtension). Vuelve a poner Burrow en primer plano para reconectar.</li>
+      <li><strong>¿Se suben mis datos?</strong> No. Burrow no tiene back-end, ni cuentas, ni SDK de terceros para análisis o pistas. Toda la información de conexión y los comandos quedan en tu dispositivo.</li>
+      <li><strong>¿Hay suscripción?</strong> No. Burrow es un pago único &mdash; sin compras integradas ni publicidad.</li>
     </ul>
 
-    <h2>Privacy</h2>
-    <p>See our <a href="privacy.html">Privacy Policy</a>.</p>
+    <h2>Privacidad</h2>
+    <p>Consulta nuestra <a href="privacy.html">política de privacidad</a>.</p>
 
     <footer>
       <p>&copy; 2026 FreezingCC. All rights reserved.</p>
