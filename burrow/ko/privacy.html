@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — 개인정보 처리방침</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; 지원</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <span class="lang-toggle active">한국어</span>
+      </div>
+    </div>
+
+    <h1>Burrow — 개인정보 처리방침</h1>
+    <p class="meta">최종 업데이트: 2026년 4월 30일 &middot; 버전 1.0</p>
+
+    <h2>개요</h2>
+    <p>
+      Burrow는 사용자가 <strong>직접 배포한</strong> frp 서버를 통해 자신의 컴퓨터, NAS 등 기기의 SSH / SFTP 서비스에 접속하기 위한 iOS / iPadOS 클라이언트입니다.
+      Burrow는 데이터 최소화 원칙에 따라 설계되었으며, 개인을 식별할 수 있는 어떠한 정보도 <strong>수집 · 전송 · 공유하지 않습니다</strong>.
+    </p>
+
+    <h2>수집하지 않는 정보</h2>
+    <ul>
+      <li>frp 서버 주소, token, 사전 공유 키(<code>secretKey</code>)를 <strong>수집하지 않습니다</strong>.</li>
+      <li>SSH 사용자명, 비밀번호, 개인키를 <strong>수집하지 않습니다</strong>.</li>
+      <li>명령어 즐겨찾기, Runbook, 파라미터 기록을 <strong>수집하지 않습니다</strong>.</li>
+      <li>SSH / SFTP로 송수신되는 모든 내용을 <strong>수집하지 않습니다</strong>.</li>
+      <li>제3자 분석 · 광고 · 충돌 보고 · 추적 SDK를 일절 <strong>사용하지 않습니다</strong>.</li>
+      <li>앱 내부에서 당사 또는 제3자에게 HTTP/HTTPS 요청을 일절 <strong>발생시키지 않습니다</strong>.</li>
+    </ul>
+
+    <h2>로컬 데이터</h2>
+    <ul>
+      <li><strong>연결 정보</strong>(머신 이름, frps 주소, 포트, 사용자명): SwiftData(기기 내 SQLite)에 저장됩니다.</li>
+      <li><strong>민감 정보</strong>(SSH 비밀번호, 개인키, frp <code>secretKey</code>, frp token): iOS Keychain에 <code>kSecAttrAccessibleAfterFirstUnlock</code> 보호 등급으로 저장됩니다.</li>
+      <li><strong>명령어 즐겨찾기, Runbook</strong>: SwiftData에 저장됩니다.</li>
+      <li><strong>파라미터 기록</strong>(최근 사용한 PID, 파일 경로 등): UserDefaults에 저장됩니다.</li>
+    </ul>
+    <p>
+      이 데이터는 당사의 어떠한 서버도 거치지 않습니다(당사는 서버를 운영하지 않습니다).
+      앱을 삭제하면 SwiftData 및 UserDefaults 데이터는 iOS에 의해 자동으로 삭제되며, Keychain 항목도 앱과 함께 삭제됩니다.
+    </p>
+
+    <h2>네트워크 통신</h2>
+    <p>본 앱이 수행하는 네트워크 통신은 <strong>다음으로 한정됩니다</strong>:</p>
+    <ul>
+      <li>연결 설정에 입력한 frp 서버(frps)와의 통신 &mdash; 내장된 frpc 클라이언트가 수행합니다.</li>
+      <li>위 frp 터널을 통해 사용자 본인의 기기로 향하는 SSH / SFTP 통신.</li>
+    </ul>
+    <p>그 외의 어떠한 엔드포인트에도 접속하지 않습니다. 텔레메트리 핑, 분석, 광고 콜백도 일절 없습니다.</p>
+
+    <h2>권한</h2>
+    <p>본 앱은 관련 기능을 사용할 때에만 다음 권한을 요청하며, 사용하지 않는 기능에 대해서는 어떠한 요청도 하지 않습니다:</p>
+    <ul>
+      <li><strong>파일 접근</strong>(시스템 파일 선택기): "SFTP 업로드"를 직접 탭했을 때만 표시됩니다. 선택한 단일 파일만 읽으며, 업로드가 완료되는 즉시 보안 스코프를 해제합니다.</li>
+      <li><strong>시스템 공유 시트</strong>: SFTP 다운로드 완료 후 표시되며, 파일을 Files, 사진 또는 다른 앱 중 어디에 저장할지 사용자가 직접 결정할 수 있습니다.</li>
+    </ul>
+    <p>본 앱은 사진, 위치, 연락처, 캘린더, 건강 등의 권한을 <strong>요청하지 않습니다</strong>. Background Modes 및 NetworkExtension(VPN)도 사용하지 않습니다.</p>
+
+    <h2>제3자 코드</h2>
+    <p>본 앱은 다음 오픈 소스 라이브러리를 사용합니다. 모두 기기 내에서 로컬로 동작하며 자체적인 네트워크 콜백을 갖지 않습니다:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; SSH / SFTP 클라이언트 (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; frp 클라이언트 (Go, gomobile로 임베드)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; 네트워킹 기반 (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; 암호화 (Apple)</li>
+    </ul>
+
+    <h2>아동 개인정보</h2>
+    <p>
+      Burrow는 일정한 기술적 배경이 있는 개발자 · 운영자 · NAS 사용자를 대상으로 하며 어린이를 주 사용자로 상정하지 않습니다. 만 13세 미만 아동의 정보를 의도적으로 수집하지 않습니다.
+    </p>
+
+    <h2>변경 사항</h2>
+    <p>
+      본 처리방침이 변경되는 경우 본 페이지를 업데이트하고 상단의 "최종 업데이트" 날짜를 수정합니다.
+      주기적으로 본 페이지를 확인하실 것을 권장합니다.
+    </p>
+
+    <h2>문의하기</h2>
+    <p>
+      본 처리방침에 관한 문의는 아래 이메일로 보내주세요:
+      <a href="mailto:pku.zhenghe@gmail.com">pku.zhenghe@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

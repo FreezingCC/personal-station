@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Support</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <span class="lang-toggle active">English</span>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+      </div>
+    </div>
+
+    <h1>Burrow — Privacy Policy</h1>
+    <p class="meta">Last updated: April 30, 2026 &middot; Version 1.0</p>
+
+    <h2>Overview</h2>
+    <p>
+      Burrow is an iOS / iPadOS client that lets you reach your own computers, NAS, and other devices via an frp server <strong>that you deploy yourself</strong>.
+      Burrow is built around the principle of data minimization: it <strong>does not collect, upload, or share</strong> any personally identifiable information.
+    </p>
+
+    <h2>What we don't collect</h2>
+    <ul>
+      <li>We do <strong>not</strong> collect your frp server address, token, or pre-shared key (<code>secretKey</code>).</li>
+      <li>We do <strong>not</strong> collect your SSH usernames, passwords, or private keys.</li>
+      <li>We do <strong>not</strong> collect your command snippets, Runbooks, or parameter history.</li>
+      <li>We do <strong>not</strong> collect anything you transfer over SSH or SFTP.</li>
+      <li>We do <strong>not</strong> use any third-party analytics, advertising, crash-reporting, or tracking SDKs.</li>
+      <li>The app does <strong>not</strong> issue any HTTP/HTTPS request to us or to any third party.</li>
+    </ul>
+
+    <h2>Local data</h2>
+    <ul>
+      <li><strong>Connection metadata</strong> (machine name, frps address, port, username): stored in SwiftData (a local SQLite store).</li>
+      <li><strong>Sensitive credentials</strong> (SSH passwords, private keys, frp <code>secretKey</code>, frp token): stored in the iOS Keychain with the <code>kSecAttrAccessibleAfterFirstUnlock</code> protection class.</li>
+      <li><strong>Command snippets and Runbooks</strong>: stored in SwiftData.</li>
+      <li><strong>Parameter history</strong> (e.g. recently used PIDs or file paths): stored in UserDefaults.</li>
+    </ul>
+    <p>
+      None of this data passes through any server of ours (we don't run any).
+      When you uninstall the app, iOS automatically removes the SwiftData and UserDefaults stores; the Keychain items are also removed with the app.
+    </p>
+
+    <h2>Network communication</h2>
+    <p>The app's only network connections are:</p>
+    <ul>
+      <li>to the frp server (frps) you configure &mdash; established by the embedded frpc client; and</li>
+      <li>to your own devices over SSH / SFTP, tunneled through that frp connection.</li>
+    </ul>
+    <p>The app contacts no other endpoint: no telemetry pings, no analytics, no advertising callbacks.</p>
+
+    <h2>Permissions</h2>
+    <p>The app only requests the following system permissions when you tap the relevant feature; unused features prompt for nothing:</p>
+    <ul>
+      <li><strong>File access</strong> (system file picker): shown when you actively tap "SFTP Upload"; we read only the single file you select and release its security scope as soon as the upload completes.</li>
+      <li><strong>System share sheet</strong>: shown after an SFTP download, so you can decide whether to save the file to Files, Photos, or another app.</li>
+    </ul>
+    <p>The app does <strong>not</strong> request access to Photos, Location, Contacts, Calendar, Health, or similar permissions. It has no Background Modes and no NetworkExtension (no VPN).</p>
+
+    <h2>Third-party code</h2>
+    <p>The app uses the following open-source libraries. All run locally on the device with no network callbacks of their own:</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> &mdash; SSH / SFTP client (Swift)</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> &mdash; frp client (Go, embedded via gomobile)</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> &mdash; networking primitives (Apple)</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> &mdash; cryptography (Apple)</li>
+    </ul>
+
+    <h2>Children's privacy</h2>
+    <p>
+      Burrow is aimed at developers, sysadmins, and NAS users with some technical background. It is not directed at children, and we do not knowingly collect any information from children under 13.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If this policy ever changes, we will update this page and revise the "Last updated" date at the top.
+      We recommend checking back periodically.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For privacy-related questions, please email:
+      <a href="mailto:pku.zhenghe@gmail.com">pku.zhenghe@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

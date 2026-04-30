@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — サポート</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; margin-right: auto; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <a href="../en/" class="lang-toggle">English</a>
+        <span class="lang-toggle active">日本語</span>
+        <a href="../ko/" class="lang-toggle">한국어</a>
+      </div>
+    </div>
+
+    <h1>Burrow — サポート</h1>
+    <p class="meta">最終更新: 2026年4月30日 &middot; バージョン 1.0</p>
+
+    <p class="intro">
+      Burrow は、<strong>ご自身で用意した frp サーバー</strong>を経由して、iPhone / iPad から自宅のパソコンや NAS、その他のリモート機器へ安全にアクセスできるクライアントアプリです。
+      frp クライアント（stcp visitor モード）と純 Swift 製の SSH / SFTP クライアントを内蔵し、コマンドのお気に入り、Runbook、ファイルブラウザを備えています。
+      アカウント不要・サーバー側不要・サブスクなし &mdash; 買い切り型のアプリです。
+      このページでは、サポート情報、よくある質問、お問い合わせ方法をご案内します。
+    </p>
+
+    <h2>お問い合わせ</h2>
+    <div class="contact-box">
+      <p class="hint">ご質問、不具合の報告、ご意見は以下のメールアドレスまでお寄せください：</p>
+      <p class="email"><a href="mailto:pku.zhenghe@gmail.com">pku.zhenghe@gmail.com</a></p>
+      <p class="response">通常 1〜2 営業日以内にご返信いたします。</p>
+    </div>
+
+    <h2>システム要件</h2>
+    <ul>
+      <li><strong>デバイス：</strong>iPhone または iPad</li>
+      <li><strong>OS：</strong>iOS / iPadOS 17.0 以降</li>
+      <li><strong>frp サーバー：</strong>ご自身で運用される frps（v0.52 以降推奨）</li>
+      <li><strong>接続先機器：</strong>frpc（stcp visitee）と SSH サービス（既定では 22 番ポート）が動作している自宅のパソコン / NAS など</li>
+    </ul>
+
+    <h2>はじめに</h2>
+    <ol>
+      <li>パブリック IP のサーバーに frps をデプロイし、<code>bindPort</code> と <code>auth.token</code> を控えておきます。</li>
+      <li>接続したい機器（パソコン / NAS）で frpc を <strong>stcp visitee</strong> モードで起動し、ローカルの SSH（22 番ポート）をトンネルに公開し、共通の <code>secretKey</code> を設定します。</li>
+      <li>Burrow を開き、新しい接続を作成します。frps アドレス、token、visitee 名、同じ <code>secretKey</code>、接続先の SSH ユーザー名 / パスワードを入力します。</li>
+      <li>接続をタップしてコマンドシェルまたは SFTP ファイルブラウザに入ります。よく使うコマンドはお気に入りや Runbook として保存し、ワンタップで再利用できます。</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <ul>
+      <li><strong>トンネルが繋がらない場合：</strong>frps のポートがインターネットから到達可能か、token がサーバー設定と一致しているか、ネットワークが frps のポートをブロックしていないかをご確認ください。</li>
+      <li><strong>接続先機器が見えない場合：</strong>visitee 側の frpc プロセスが動作中で、<code>secretKey</code> が Burrow 側の入力と一致していることをご確認ください。</li>
+      <li><strong>SSH 認証に失敗する場合：</strong>v1 はパスワード認証に対応しています。PEM 秘密鍵による認証は今後のリリースで提供予定です。ユーザー名 / パスワードが正しいこと、接続先の sshd がパスワードログインを許可していることをご確認ください。</li>
+      <li><strong>アプリをバックグラウンドにするとトンネルが切れる：</strong>v1 はフォアグラウンドのみでトンネルを維持します（NetworkExtension は使用しません）。フォアグラウンドに戻すと再接続できます。</li>
+      <li><strong>データはアップロードされますか？</strong>いいえ。Burrow にはサーバー側もアカウントもなく、第三者の解析・トラッキング SDK も組み込まれていません。すべての接続情報とコマンドは端末内のみに保存されます。</li>
+      <li><strong>サブスクリプションはありますか？</strong>ありません。Burrow は買い切り型で、アプリ内課金や広告も一切ありません。</li>
+    </ul>
+
+    <h2>プライバシー</h2>
+    <p><a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

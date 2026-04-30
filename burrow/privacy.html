@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burrow — 隐私政策</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; 技术支持</a>
+      </div>
+      <div class="lang-group">
+        <span class="lang-toggle active">中文</span>
+        <a href="en/privacy.html" class="lang-toggle">English</a>
+        <a href="ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="ko/privacy.html" class="lang-toggle">한국어</a>
+      </div>
+    </div>
+
+    <h1>Burrow — 隐私政策</h1>
+    <p class="meta">最后更新：2026-04-30 · Version 1.0</p>
+
+    <h2>概述</h2>
+    <p>
+      Burrow 是一款 iOS / iPadOS 客户端，用于通过你<strong>自行部署</strong>的 frp 服务器，从手机或平板访问自己家里（或别处）的电脑、NAS 等设备的 SSH / SFTP 服务。
+      Burrow 在设计上遵循数据最小化原则，<strong>不收集、不上传、不共享</strong>任何个人可识别信息。
+    </p>
+
+    <h2>我们不收集的信息</h2>
+    <ul>
+      <li>我们<strong>不收集</strong>你的 frp 服务器地址、token、预共享密钥（<code>secretKey</code>）</li>
+      <li>我们<strong>不收集</strong>你的 SSH 用户名、密码、私钥</li>
+      <li>我们<strong>不收集</strong>你的命令收藏夹、Runbook、参数历史值</li>
+      <li>我们<strong>不收集</strong>你通过 SSH / SFTP 传输的任何内容</li>
+      <li>我们<strong>不使用</strong>任何第三方分析、广告、崩溃上报或追踪 SDK</li>
+      <li>App 内部<strong>不会</strong>向我们或任何第三方发起 HTTP/HTTPS 请求</li>
+    </ul>
+
+    <h2>本地数据</h2>
+    <ul>
+      <li><strong>连接配置</strong>（机器名、frps 地址、端口、用户名）：保存在 SwiftData（本地 SQLite）。</li>
+      <li><strong>敏感凭证</strong>（SSH 密码、私钥、frp <code>secretKey</code>、frp token）：保存在 iOS Keychain，加密级别 <code>kSecAttrAccessibleAfterFirstUnlock</code>。</li>
+      <li><strong>命令收藏夹、Runbook</strong>：保存在 SwiftData。</li>
+      <li><strong>参数历史值</strong>（如最近用过的 PID、文件路径）：保存在 UserDefaults。</li>
+    </ul>
+    <p>
+      所有数据不经过我们的任何服务器（我们也没有服务器）。
+      卸载 app 后，SwiftData 与 UserDefaults 数据会被 iOS 自动清除；Keychain 中的项也会随 app 卸载一并清除。
+    </p>
+
+    <h2>网络通信</h2>
+    <p>App 建立的网络连接<strong>仅限</strong>：</p>
+    <ul>
+      <li>你在连接配置里填写的 frp 服务器（frps）—— 由 app 内嵌的 frpc 客户端发起；</li>
+      <li>通过上述 frp 隧道建立的本地回环 SSH / SFTP 连接到你自己的设备。</li>
+    </ul>
+    <p>除此之外不访问任何其它网络端点：没有统计 ping、没有 telemetry、没有广告 SDK 的回传。</p>
+
+    <h2>权限</h2>
+    <p>App 仅在你点击相关功能时请求以下权限，未使用的功能不会请求：</p>
+    <ul>
+      <li><strong>文件访问</strong>（系统文件选择器）：仅在你主动点击"SFTP 上传"时弹出；我们只读你选中的那一个文件，用完即释放 security scope。</li>
+      <li><strong>系统分享表单</strong>：SFTP 下载完成后弹出，让你自行决定保存到 Files、相册或第三方 app。</li>
+    </ul>
+    <p>App <strong>不申请</strong>相册、定位、联系人、日历、健康等权限，无后台运行（无 Background Modes），无 VPN（无 NetworkExtension）。</p>
+
+    <h2>第三方代码</h2>
+    <p>App 使用以下开源库，均在本地执行、不做任何网络回传：</p>
+    <ul>
+      <li><a href="https://github.com/orlandos-nl/Citadel">Citadel</a> — SSH / SFTP 客户端（Swift）</li>
+      <li><a href="https://github.com/fatedier/frp">fatedier/frp</a> — frp 客户端（Go，通过 gomobile 编译嵌入）</li>
+      <li><a href="https://github.com/apple/swift-nio">SwiftNIO</a> — 网络底层（Apple 官方）</li>
+      <li><a href="https://github.com/apple/swift-crypto">swift-crypto</a> — 加密（Apple 官方）</li>
+    </ul>
+
+    <h2>儿童隐私</h2>
+    <p>
+      App 面向有一定技术背景的开发者 / 运维 / NAS 用户，不以儿童为受众，也不会有意收集 13 岁以下儿童的任何信息。
+    </p>
+
+    <h2>政策变更</h2>
+    <p>
+      若未来隐私政策发生变更，我们将更新本页面并修改顶部的"最后更新"日期。
+      建议你定期查阅本页面以了解最新政策。
+    </p>
+
+    <h2>联系我们</h2>
+    <p>
+      如对本隐私政策有任何疑问，请邮件联系：
+      <a href="mailto:pku.zhenghe@gmail.com">pku.zhenghe@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
