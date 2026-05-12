@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — Politique de confidentialité</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    h3 { margin-top: 24px; margin-bottom: 8px; font-size: 1.0625rem; font-weight: 600; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Assistance</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <a href="../ko/privacy.html" class="lang-toggle">한국어</a>
+        <span class="lang-toggle active">Français</span>
+        <a href="../de/privacy.html" class="lang-toggle">Deutsch</a>
+      </div>
+    </div>
+
+    <h1>Habitoo — Politique de confidentialité</h1>
+    <p class="meta">Dernière mise à jour : 2026-05-12 · Version 1.0</p>
+
+    <h2>Vue d'ensemble</h2>
+    <p>
+      Habitoo est un coach IA d'habitudes pour iPhone. Nous suivons le <strong>principe de minimisation des données</strong> :
+      la grande majorité des données d'habitude reste sur votre appareil. Nous n'envoyons à notre back-end et à notre fournisseur IA
+      que le minimum nécessaire, et uniquement lorsque vous déclenchez activement une fonction IA (réduction d'objectif,
+      suggestion d'ancre, bilan mensuel). Cette page décrit honnêtement chaque flux de données, sans rien cacher.
+    </p>
+
+    <h2>Données stockées localement</h2>
+    <p>Les données suivantes restent uniquement sur votre appareil et ne le quittent jamais, sauf si vous déclenchez l'une des fonctions IA ou de reporting décrites plus bas :</p>
+    <ul>
+      <li><strong>Définitions d'habitudes</strong> (nom, texte de micro-objectif, type et valeur d'ancre, niveau de difficulté) : SwiftData (SQLite local)</li>
+      <li><strong>Enregistrements de complétion</strong> (état, horodatage, texte de note pour chaque jour) : SwiftData</li>
+      <li><strong>Résultats du bilan mensuel</strong> (mis en cache localement après génération, pour consultation hors-ligne) : SwiftData</li>
+      <li><strong>Réglages de l'app</strong> (préférences de rappel, etc.) : UserDefaults</li>
+      <li><strong>Planifications de notifications locales</strong> (rappels d'ancre) : planifiées via le Centre de notifications iOS, sans planification cloud</li>
+    </ul>
+
+    <h2>Données envoyées à notre back-end</h2>
+    <p>
+      Notre back-end est hébergé sur Cloudflare Workers, avec Cloudflare D1 pour stocker les événements analytiques et la liste d'attente.
+      L'app envoie des requêtes HTTPS à notre back-end dans les situations suivantes :
+    </p>
+
+    <h3>Réduction d'objectif IA / Suggestion d'ancre / Contrôle coach / Bilan mensuel</h3>
+    <p>Lorsque vous déclenchez l'une de ces fonctions IA, l'app envoie ce qui suit en HTTPS à notre back-end, qui le transmet pour inférence à notre fournisseur IA (MiniMax) :</p>
+    <ul>
+      <li>Réduction d'objectif : le texte d'habitude saisi + votre paramètre de langue + les noms des habitudes que vous suivez déjà</li>
+      <li>Suggestion d'ancre : le texte d'habitude, le micro-objectif sélectionné, le paramètre de langue</li>
+      <li>Contrôle coach : contexte d'habitude, états de complétion des ~7 derniers jours, dernières notes (texte + étiquette d'humeur)</li>
+      <li>Bilan mensuel : tous les noms d'habitudes du mois, tous les enregistrements (date, état, texte de note), paramètre de langue</li>
+    </ul>
+    <p>
+      Ces requêtes <strong>ne contiennent pas</strong> votre nom, courriel, identifiant d'appareil ou autre identifiant personnel direct
+      (votre adresse IP est conservée environ 30 jours dans les journaux Cloudflare à des fins de détection d'abus et de limitation de débit).
+      Le résultat de l'inférence IA est renvoyé de façon synchrone à l'app et stocké localement ; nous ne conservons ni les entrées ni les sorties IA côté back-end.
+    </p>
+
+    <h3>Événements analytiques</h3>
+    <p>Pour évaluer la rétention et l'usage des fonctions, l'app envoie des événements analytiques dans les situations suivantes :</p>
+    <ul>
+      <li>Types d'événements : ouverture de l'app, appel IA demandé, micro-objectif sélectionné, ancre sélectionnée, habitude créée, habitude complétée, bilan mensuel consulté, page Pro affichée/cliquée, inscription liste d'attente</li>
+      <li>Chaque événement contient : identifiant d'appareil (IDFV iOS — un identifiant aléatoire attribué par iOS pour cette app, réinitialisé à la désinstallation), nom d'événement, propriétés d'événement (quelques champs booléens/textuels), paramètre de langue, version de l'app, horodatage, identifiant de l'app</li>
+      <li>Ne contient <strong>pas</strong> : votre nom, courriel, noms d'habitudes, texte de notes, contenu des réponses IA</li>
+    </ul>
+    <p>Les événements analytiques sont stockés dans Cloudflare D1 (région APAC) et ne sont consultables que par l'auteur de l'app.</p>
+
+    <h3>Courriel de la liste d'attente Pro (optionnel)</h3>
+    <p>
+      Nous collectons les informations suivantes uniquement lorsque vous soumettez activement votre courriel dans la liste d'attente Pro
+      (page Réglages dans l'app) : courriel, étiquette de source (par exemple <code>pro_upsell_settings</code>), identifiant d'appareil,
+      paramètre de langue, user-agent, horodatage. Elles servent uniquement à : vous notifier au lancement de Pro et envoyer une remise
+      « early-bird » de 50 % aux 200 premiers inscrits. Au-delà, nous ne les utiliserons à aucune autre fin marketing ou tierce.
+    </p>
+
+    <h2>Sous-traitants</h2>
+    <p>Habitoo s'appuie sur les services tiers suivants, tous joints via HTTPS chiffré :</p>
+    <ul>
+      <li><strong>Cloudflare</strong> (Workers + D1 + Pages) — exécute notre logique back-end, stocke les événements analytiques et la liste d'attente. Cloudflare n'accède pas au contenu des requêtes pour son propre usage ; il intervient purement comme fournisseur d'infrastructure.</li>
+      <li><strong>MiniMax</strong> (service de modèle IA) — traite les requêtes d'inférence de réduction d'objectif, suggestion d'ancre, contrôle coach et bilan mensuel. Selon notre accord avec MiniMax, les données utilisateur ne sont pas utilisées pour entraîner leurs modèles.</li>
+    </ul>
+
+    <h2>Ce que nous ne faisons pas</h2>
+    <ul>
+      <li>Pas de <strong>SDK analytique</strong> tiers (pas de Firebase Analytics, Mixpanel, GA, AppsFlyer)</li>
+      <li>Pas de <strong>SDK de reporting de crash</strong> tiers (pas de Sentry, pas de Crashlytics)</li>
+      <li>Pas de <strong>SDK publicitaires</strong> ; aucune publicité affichée, aucun suivi inter-app</li>
+      <li>Nous ne demandons pas la permission <strong>IDFA</strong> (identifiant publicitaire)</li>
+      <li>Nous ne demandons pas l'accès aux photos, à la localisation, aux contacts, au calendrier ou aux données Health</li>
+      <li>Nous n'envoyons aucune <strong>notification push à distance</strong> (uniquement des notifications locales)</li>
+      <li>Nous ne partageons aucune donnée avec des <strong>data brokers</strong></li>
+    </ul>
+
+    <h2>Conservation et suppression des données</h2>
+    <ul>
+      <li><strong>Données locales :</strong> suivent le cycle de vie iOS — automatiquement supprimées à la désinstallation de l'app.</li>
+      <li><strong>Événements analytiques :</strong> conservés indéfiniment pendant la phase de validation MVP ; une politique formelle de conservation/suppression est sur la feuille de route. Pour supprimer immédiatement vos données analytiques, envoyez-nous un courriel avec l'IDFV de votre appareil (visible en bas des Réglages dans l'app) ; nous procédons à la suppression sous 7 jours ouvrés.</li>
+      <li><strong>Courriel de liste d'attente :</strong> conservé jusqu'à l'envoi de l'invitation de lancement Pro, ou supprimé immédiatement sur demande. Si Pro n'est jamais lancé, nous purgeons les données à l'arrêt du produit.</li>
+    </ul>
+
+    <h2>Confidentialité des enfants</h2>
+    <p>
+      Habitoo n'est pas destiné aux enfants de moins de 13 ans et nous ne collectons sciemment aucune donnée les concernant.
+      Si vous pensez qu'un enfant a utilisé l'app et soumis des données sans autorisation, écrivez-nous pour la suppression.
+    </p>
+
+    <h2>Modifications de la politique</h2>
+    <p>
+      Si cette politique de confidentialité évolue, nous mettrons à jour cette page et modifierons la date « Dernière mise à jour » en haut.
+      Les changements importants (par exemple l'ajout d'une nouvelle catégorie de données collectées) seront annoncés dans l'app.
+      Nous recommandons de consulter cette page régulièrement.
+    </p>
+
+    <h2>Nous contacter</h2>
+    <p>
+      Pour toute question sur cette politique, demande d'export ou de suppression de vos données, ou pour en savoir plus sur le traitement
+      des données par Cloudflare ou MiniMax, écrivez-nous à :
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

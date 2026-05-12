@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — 개인정보 처리방침</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    h3 { margin-top: 24px; margin-bottom: 8px; font-size: 1.0625rem; font-weight: 600; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; 지원</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <a href="../en/privacy.html" class="lang-toggle">English</a>
+        <a href="../ja/privacy.html" class="lang-toggle">日本語</a>
+        <span class="lang-toggle active">한국어</span>
+        <a href="../fr/privacy.html" class="lang-toggle">Français</a>
+        <a href="../de/privacy.html" class="lang-toggle">Deutsch</a>
+      </div>
+    </div>
+
+    <h1>Habitoo — 개인정보 처리방침</h1>
+    <p class="meta">최종 업데이트: 2026-05-12 · Version 1.0</p>
+
+    <h2>개요</h2>
+    <p>
+      Habitoo는 iPhone용 AI 습관 코치입니다. 저희는 <strong>데이터 최소화 원칙</strong>을 따릅니다:
+      대부분의 습관 데이터는 사용자의 기기에 저장됩니다. AI 기능(목표 축소, 앵커 제안, 월간 회고)을 사용자가 능동적으로 트리거할 때에만,
+      해당 요청에 필요한 최소한의 데이터를 저희 백엔드와 AI 제공자에게 전송합니다.
+      이 페이지에서는 모든 데이터 흐름을 정직하게 공개하며, 숨기지 않습니다.
+    </p>
+
+    <h2>로컬에 저장되는 데이터</h2>
+    <p>다음 데이터는 사용자 기기에만 저장되며, 아래 명시된 AI 기능이나 전송 기능을 트리거하지 않는 한 기기를 떠나지 않습니다:</p>
+    <ul>
+      <li><strong>습관 정의</strong>(습관 이름, 마이크로 목표 텍스트, 앵커 유형 및 값, 난이도): SwiftData(로컬 SQLite)</li>
+      <li><strong>완료 기록</strong>(각 날짜의 상태, 타임스탬프, 저널 메모 텍스트): SwiftData</li>
+      <li><strong>월간 회고 결과</strong>(오프라인에서 과거 회고를 볼 수 있도록 생성 후 로컬 캐시): SwiftData</li>
+      <li><strong>앱 설정</strong>(알림 환경설정 등): UserDefaults</li>
+      <li><strong>로컬 알림 스케줄</strong>(앵커 알림): iOS 알림 센터로 예약, 클라우드 스케줄링 없음</li>
+    </ul>
+
+    <h2>저희 백엔드로 전송되는 데이터</h2>
+    <p>
+      저희 백엔드는 Cloudflare Workers에서 호스팅되며, 분석 이벤트와 대기 명단은 Cloudflare D1에 저장됩니다.
+      앱은 다음 상황에서 HTTPS 요청을 백엔드로 전송합니다:
+    </p>
+
+    <h3>AI 목표 축소 / 앵커 제안 / 코치 체크 / 월간 회고</h3>
+    <p>이러한 AI 기능을 트리거하면 앱은 다음을 HTTPS로 백엔드에 전송하고, 백엔드는 추론을 위해 이를 AI 제공자(MiniMax)에 전달합니다:</p>
+    <ul>
+      <li>목표 축소: 입력한 습관 텍스트 + 언어 설정 + 이미 추적 중인 다른 습관 이름</li>
+      <li>앵커 제안: 습관 텍스트, 선택한 마이크로 목표 텍스트, 언어 설정</li>
+      <li>코치 체크: 습관 컨텍스트, 최근 7일의 완료 상태, 최근 저널 메모(텍스트 + 감정 태그)</li>
+      <li>월간 회고: 해당 월의 모든 습관 이름, 모든 완료 기록(날짜, 상태, 저널 텍스트), 언어 설정</li>
+    </ul>
+    <p>
+      이러한 요청에는 이름, 이메일, 기기 ID 또는 기타 직접적인 개인 식별자가 <strong>포함되지 않습니다</strong>
+      (IP 주소는 남용 탐지 및 속도 제한 목적으로 Cloudflare 엣지 로그에 약 30일간 보관됩니다).
+      AI 추론 결과는 앱에 동기적으로 반환되어 로컬에 저장되며, 저희는 AI 입력이나 출력을 백엔드에 영구 저장하지 않습니다.
+    </p>
+
+    <h3>분석 이벤트</h3>
+    <p>앱 리텐션과 기능 사용도를 평가하기 위해 다음 상황에서 앱은 분석 이벤트를 전송합니다:</p>
+    <ul>
+      <li>이벤트 유형: 앱 실행, AI 호출 요청, 마이크로 목표 선택, 앵커 선택, 습관 생성, 습관 완료, 월간 회고 조회, Pro 업셀 노출/클릭, 대기 명단 제출</li>
+      <li>각 이벤트에 포함되는 정보: 기기 ID(iOS IDFV — 이 앱에 대해 iOS가 무작위로 할당, 삭제 시 리셋), 이벤트 이름, 이벤트 속성(소수의 불리언/문자열 필드), 언어 설정, 앱 버전, 타임스탬프, 앱 식별자</li>
+      <li>포함되지 <strong>않는</strong> 정보: 이름, 이메일, 습관 이름, 저널 텍스트, AI 응답 내용</li>
+    </ul>
+    <p>분석 이벤트는 Cloudflare D1(APAC 리전)에 저장되며, 앱 작성자 본인만 조회할 수 있습니다.</p>
+
+    <h3>Pro 대기 명단 이메일(선택)</h3>
+    <p>
+      앱 내 설정 페이지에서 사용자가 능동적으로 Pro 대기 명단에 이메일을 제출할 때에만 다음을 수집합니다:
+      이메일, 출처 라벨(예: <code>pro_upsell_settings</code>), 기기 ID, 언어 설정, user-agent, 타임스탬프.
+      이 정보는 Pro 출시 시 알림을 보내고, 처음 200명에게 50% 얼리버드 할인 초대를 보내는 데에만 사용됩니다.
+      그 외 다른 마케팅이나 제3자 목적으로 사용하지 않습니다.
+    </p>
+
+    <h2>서브 프로세서</h2>
+    <p>Habitoo는 다음 제3자 서비스를 사용하며, 모두 암호화된 HTTPS로 통신합니다:</p>
+    <ul>
+      <li><strong>Cloudflare</strong>(Workers + D1 + Pages) — 백엔드 로직 실행, 분석 이벤트 및 대기 명단 데이터 저장. Cloudflare는 자체 용도로 요청 내용을 읽지 않으며, 순수한 인프라 제공자로서만 작동합니다.</li>
+      <li><strong>MiniMax</strong>(AI 모델 서비스) — 목표 축소, 앵커 제안, 코치 체크, 월간 회고 추론을 처리합니다. MiniMax와의 계약상 사용자 데이터는 모델 학습에 사용되지 않습니다.</li>
+    </ul>
+
+    <h2>저희가 하지 않는 일</h2>
+    <ul>
+      <li>제3자 <strong>분석 SDK</strong>를 사용하지 않습니다(Firebase Analytics, Mixpanel, GA, AppsFlyer 등 없음)</li>
+      <li>제3자 <strong>크래시 리포팅 SDK</strong>를 사용하지 않습니다(Sentry, Crashlytics 등 없음)</li>
+      <li><strong>광고 SDK</strong>를 사용하지 않으며, 광고를 표시하지 않고, 앱 간 행동 추적을 하지 않습니다</li>
+      <li><strong>IDFA</strong>(광고 식별자) 권한을 요청하지 않습니다</li>
+      <li>사진, 위치, 연락처, 캘린더, Health 데이터 접근 권한을 요청하지 않습니다</li>
+      <li><strong>원격 푸시 알림</strong>을 보내지 않습니다(로컬 알림만 사용)</li>
+      <li><strong>데이터 브로커</strong>와 데이터를 공유하지 않습니다</li>
+    </ul>
+
+    <h2>데이터 보유 및 삭제</h2>
+    <ul>
+      <li><strong>로컬 데이터:</strong> iOS 라이프사이클을 따릅니다 — 앱을 삭제하면 자동으로 제거됩니다.</li>
+      <li><strong>분석 이벤트:</strong> MVP 검증 기간 동안 무기한 보관됩니다. 정식 보유/삭제 정책은 로드맵에 있습니다. 즉시 삭제를 원하시면 기기의 IDFV(앱 내 설정 하단에 표시)와 함께 이메일로 연락주시기 바랍니다. 7 영업일 이내에 삭제됩니다.</li>
+      <li><strong>대기 명단 이메일:</strong> Pro 출시 초대를 보낼 때까지, 또는 요청 시 즉시 삭제될 때까지 보관됩니다. Pro가 영영 출시되지 않으면 서비스 종료 시 일괄 삭제됩니다.</li>
+    </ul>
+
+    <h2>아동 개인정보</h2>
+    <p>
+      Habitoo는 13세 미만 아동을 대상으로 하지 않으며, 13세 미만 아동의 정보를 의도적으로 수집하지 않습니다.
+      자녀가 허락 없이 앱을 사용하여 데이터를 제출했다면 이메일로 연락주시면 삭제하겠습니다.
+    </p>
+
+    <h2>정책 변경</h2>
+    <p>
+      향후 본 개인정보 처리방침이 변경되면 이 페이지를 업데이트하고 상단의 "최종 업데이트" 날짜를 수정합니다.
+      중요한 변경(새로운 데이터 수집 카테고리 추가 등)은 앱 내에서도 알려드립니다.
+      본 페이지를 정기적으로 확인하시기를 권장합니다.
+    </p>
+
+    <h2>문의</h2>
+    <p>
+      본 개인정보 처리방침에 대한 질문, 데이터 내보내기 또는 삭제 요청, Cloudflare나 MiniMax의 데이터 처리에 관한 자세한 내용이 필요하시면 아래로 이메일을 보내주시기 바랍니다:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

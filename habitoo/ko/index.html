@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — 지원</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <a href="../en/" class="lang-toggle">English</a>
+        <a href="../ja/" class="lang-toggle">日本語</a>
+        <span class="lang-toggle active">한국어</span>
+        <a href="../fr/" class="lang-toggle">Français</a>
+        <a href="../de/" class="lang-toggle">Deutsch</a>
+      </div>
+    </div>
+
+    <h1>Habitoo — 지원</h1>
+    <p class="meta">최종 업데이트: 2026-05-12 · Version 1.0</p>
+
+    <p class="intro">
+      Habitoo는 iPhone용 AI 습관 코치입니다. 하고 싶은 일을 입력하면 AI가 "오늘 밤 분명히 할 수 있는 크기"까지 목표를 줄여주고,
+      매일 반드시 거치는 순간에 "앵커"로 연결합니다. 매월 1일에는 사용자가 직접 작성한 날짜와 메모를 인용한
+      회고를 자동 생성합니다 — 빈 격려가 아니라 사용자 본인의 근거로만.
+      이 페이지에서는 기술 지원 정보, 자주 묻는 질문, 연락처를 제공합니다.
+    </p>
+
+    <h2>문의하기</h2>
+    <div class="contact-box">
+      <p class="hint">질문, 버그 신고, 기능 제안은 아래 이메일로 보내주세요:</p>
+      <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
+      <p class="response">일반적으로 1~2 영업일 이내에 답변드립니다.</p>
+    </div>
+
+    <h2>시스템 요구 사항</h2>
+    <ul>
+      <li><strong>기기:</strong> iPhone</li>
+      <li><strong>OS:</strong> iOS 17.4 이상</li>
+      <li><strong>네트워크:</strong> AI 기능(목표 축소, 앵커 제안, 월간 회고)은 인터넷 연결이 필요합니다. 그 외 기능은 오프라인에서 작동합니다.</li>
+    </ul>
+
+    <h2>시작하기</h2>
+    <ol>
+      <li>앱을 열고 만들고 싶은 습관을 입력합니다(예: "책 읽기", "스트레칭", "명상").</li>
+      <li>AI가 4개의 마이크로 스타트를 제안합니다 — 30초면 끝나는 가장 작은 동작부터, 5분 이내에 끝나는 완성된 마이크로 습관까지. <strong>오늘 밤 망설이지 않고 할 수 있는 크기</strong>를 선택하세요.</li>
+      <li>앵커(연결할 순간)를 선택합니다. 고정 시간(예: 07:30)이든, 기존 행동(예: "아침 커피를 마신 후")이든 상관없습니다.</li>
+      <li>앵커 시간이 되면 로컬 알림을 받습니다. 완료한 후 Today 화면에서 체크하고 원하시면 한 줄 메모를 적습니다.</li>
+      <li>매월 1일, 앱이 전월의 회고를 자동 생성합니다 — 날짜와 메모를 인용하면서 가장 좋았던 주와 무너진 패턴을 짚어냅니다.</li>
+    </ol>
+
+    <h2>자주 묻는 질문</h2>
+    <ul>
+      <li><strong>AI가 추천한 마이크로 목표가 마음에 들지 않을 때는?</strong> "절대 거부하지 않을" 가장 작은 것을 선택하세요. 주제 자체를 바꾸고 싶다면 목표 입력 화면으로 돌아가 다시 입력하면 됩니다. 마이크로 목표는 앱 내에서 언제든 조정할 수 있습니다.</li>
+      <li><strong>앵커 알림이 오지 않습니다.</strong> 알림 권한을 확인하세요: iOS 설정 → Habitoo → 알림 → 알림 허용. 앵커가 "기존 행동" 유형이면 시간이 고정되지 않아 알림이 전송되지 않습니다 — 그 행동 후 직접 앱을 열어주세요.</li>
+      <li><strong>월간 회고는 언제 생성되나요?</strong> 매월 1일 자동으로 생성됩니다. 전월에 최소 1건의 완료 기록이 있어야 생성됩니다. 몇 초에서 수십 초가 걸리므로 결과가 표시될 때까지 기다려주세요.</li>
+      <li><strong>"연속 N일" 카운터가 없는 이유는?</strong> 의도된 설계입니다. 연구 결과 연속 카운터는 사용자가 하루를 놓치는 순간 "다 망쳤다"고 느끼게 만들어 이탈하는 근본 원인이었습니다. Habitoo는 30일 / 100일 성공률과 난이도 히트맵을 보여주어, 하나의 숫자에 처벌받는 대신 전체 모양을 볼 수 있게 합니다.</li>
+      <li><strong>여러 습관을 추적할 수 있나요?</strong> 무료 버전은 1개의 습관을 완전한 AI 루프로 지원합니다. 다중 습관 지원은 Pro 버전(개발 중)에서 제공됩니다. 앱 내 설정 → Pro에서 대기 명단에 가입할 수 있습니다.</li>
+      <li><strong>iCloud로 동기화되나요?</strong> 이 버전에서는 동기화되지 않습니다. 모든 데이터는 기기에 로컬로 저장됩니다. 기기 간 동기화는 Pro의 예정 기능입니다.</li>
+      <li><strong>앱을 삭제하면 데이터는 어떻게 되나요?</strong> 로컬 데이터(습관, 완료 기록, 메모)는 앱 삭제 시 iOS에 의해 삭제됩니다. 대기 명단 이메일(제출한 경우)은 백엔드에 저장되어 있으므로 삭제를 원하시면 이메일로 연락주세요.</li>
+      <li><strong>AI가 이상한/도움이 안 되는 답을 줍니다.</strong> 입력한 내용과 받은 답변을 이메일로 보내주세요. AI 프롬프트는 실제 피드백을 기반으로 반복 개선됩니다.</li>
+      <li><strong>메모를 편집하거나 삭제할 수 있나요?</strong> 가능합니다. Today 화면 또는 완료 기록 상세 화면에서 수정 및 삭제할 수 있습니다.</li>
+      <li><strong>제 습관 이름이나 메모가 AI 모델 학습에 사용되나요?</strong> 아니요. AI 기능(목표 축소, 앵커 제안, 코치 체크, 월간 회고)의 각 호출에 필요한 최소한의 데이터만 AI 제공자(MiniMax)에 전송합니다. MiniMax와의 계약상 이러한 데이터는 모델 학습에 사용되지 않습니다. 자세한 내용은 <a href="privacy.html">개인정보 처리방침</a>을 참조하세요.</li>
+    </ul>
+
+    <h2>알려진 제한 및 로드맵</h2>
+    <ul>
+      <li>v1.0은 iPhone만 지원합니다 — iPad, Mac, Vision Pro 미지원. 다중 플랫폼 지원은 로드맵에 있으나 일정은 미정입니다.</li>
+      <li>이 버전에는 계정 시스템, 기기 간 동기화, 데이터 내보내기가 없습니다. Pro와 함께 단계적으로 제공될 예정입니다.</li>
+      <li>v1.0의 월간 회고는 텍스트만 제공됩니다. 공유 가능한 비주얼 카드는 Pro의 예정 기능입니다.</li>
+    </ul>
+
+    <h2>개인정보</h2>
+    <p><a href="privacy.html">개인정보 처리방침</a>을 참조하세요.</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

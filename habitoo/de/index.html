@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — Support</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <a href="../en/" class="lang-toggle">English</a>
+        <a href="../ja/" class="lang-toggle">日本語</a>
+        <a href="../ko/" class="lang-toggle">한국어</a>
+        <a href="../fr/" class="lang-toggle">Français</a>
+        <span class="lang-toggle active">Deutsch</span>
+      </div>
+    </div>
+
+    <h1>Habitoo — Support</h1>
+    <p class="meta">Zuletzt aktualisiert: 12.05.2026 · Version 1.0</p>
+
+    <p class="intro">
+      Habitoo ist ein KI-Gewohnheitscoach für das iPhone. Sie sagen, was Sie tun wollen, und die KI verkleinert das Ziel
+      auf eine Größe, die Sie heute Abend wirklich schaffen — und verknüpft es mit einem Moment, den Sie ohnehin täglich
+      durchlaufen (Ihrem „Anker"). Am 1. jedes Monats erzeugt die App automatisch eine Auswertung auf Basis der Daten und Notizen,
+      die Sie selbst eingetragen haben — keine leeren Motivationsphrasen, nur Ihre eigenen Belege. Diese Seite enthält
+      Support-Informationen, häufige Fragen und Kontaktdaten.
+    </p>
+
+    <h2>Kontakt</h2>
+    <div class="contact-box">
+      <p class="hint">Für Fragen, Fehlermeldungen oder Funktionswünsche schreiben Sie uns bitte an:</p>
+      <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
+      <p class="response">Wir antworten in der Regel innerhalb von 1–2 Werktagen.</p>
+    </div>
+
+    <h2>Systemvoraussetzungen</h2>
+    <ul>
+      <li><strong>Gerät:</strong> iPhone</li>
+      <li><strong>Betriebssystem:</strong> iOS 17.4 oder höher</li>
+      <li><strong>Netzwerk:</strong> Die KI-Funktionen (Zielverkleinerung, Anker-Vorschläge, Monatsrückblick) benötigen eine Internetverbindung. Alle anderen Funktionen funktionieren offline.</li>
+    </ul>
+
+    <h2>Erste Schritte</h2>
+    <ol>
+      <li>Öffnen Sie die App und geben Sie die Gewohnheit ein, die Sie aufbauen möchten (zum Beispiel „mehr lesen", „dehnen", „meditieren").</li>
+      <li>Die KI schlägt 4 Mikro-Starts vor — von einer 30-Sekunden-Mini-Handlung bis zur vollständigen Mikro-Gewohnheit unter 5 Minuten. Wählen Sie die Größe, <strong>die Sie heute Abend ohne Zögern erledigen würden</strong>.</li>
+      <li>Wählen Sie einen Anker (einen Moment, an den die Gewohnheit gekoppelt wird): entweder eine feste Uhrzeit (zum Beispiel 07:30) oder eine bestehende Handlung (zum Beispiel „nach dem Morgenkaffee").</li>
+      <li>Zum Anker-Zeitpunkt erhalten Sie eine lokale Benachrichtigung. Nach Erledigung haken Sie sie in der Today-Ansicht ab und schreiben optional eine kurze Notiz.</li>
+      <li>Am 1. jedes Monats erzeugt die App automatisch einen Rückblick auf den Vormonat — mit Daten und Ihren Notizen, der die beste Woche und die Ausfallmuster hervorhebt.</li>
+    </ol>
+
+    <h2>Häufige Fragen</h2>
+    <ul>
+      <li><strong>Die KI-Mikroziele gefallen mir nicht — was tun?</strong> Wählen Sie das kleinste, das Sie nie ablehnen würden, auch wenn es trivial wirkt. Wenn Sie das Thema ändern möchten, kehren Sie zur Eingabe zurück und formulieren Sie neu. Das Mikroziel lässt sich in der App jederzeit anpassen.</li>
+      <li><strong>Ich erhalte keine Anker-Erinnerungen.</strong> Prüfen Sie die Benachrichtigungs-Erlaubnis: iOS-Einstellungen → Habitoo → Mitteilungen → Mitteilungen erlauben. Wenn Ihr Anker vom Typ „bestehende Handlung" ist (keine feste Uhrzeit), wird keine Benachrichtigung gesendet, weil der Moment nicht planbar ist — öffnen Sie nach dieser Handlung die App selbst.</li>
+      <li><strong>Wann erscheint der Monatsrückblick?</strong> Automatisch am 1. jedes Monats. Für den Vormonat muss mindestens ein Eintrag vorliegen, damit die Generierung anläuft. Sie dauert wenige Sekunden bis eine halbe Minute; warten Sie auf das Ergebnis.</li>
+      <li><strong>Warum gibt es keinen „N-Tage-Streak"-Zähler?</strong> Bewusste Entscheidung. Studien zeigen, dass Streak-Zähler die Hauptursache für den Abbruch sind — ein einziger verpasster Tag fühlt sich wie kompletter Misserfolg an. Habitoo zeigt stattdessen die Erfolgsquote über 30 / 100 Tage und eine Schwierigkeits-Heatmap, damit Sie das Gesamtmuster sehen statt von einer einzelnen Zahl bestraft zu werden.</li>
+      <li><strong>Kann ich mehrere Gewohnheiten verfolgen?</strong> Die kostenlose Version unterstützt eine Gewohnheit mit dem vollständigen KI-Zyklus. Mehrere Gewohnheiten gibt es in der Pro-Version (in Entwicklung). In der App können Sie sich unter Einstellungen → Pro auf die Warteliste setzen.</li>
+      <li><strong>Wird mit iCloud synchronisiert?</strong> In dieser Version nicht. Alle Daten werden lokal auf Ihrem Gerät gespeichert. Geräteübergreifende Synchronisation ist eine geplante Pro-Funktion.</li>
+      <li><strong>Was passiert mit meinen Daten bei Deinstallation?</strong> Lokale Daten (Gewohnheiten, Erledigungen, Notizen) werden bei der Deinstallation durch iOS entfernt. Ihre Warteliste-E-Mail (falls eingereicht) liegt auf unserem Backend — schreiben Sie uns für eine Löschung.</li>
+      <li><strong>Die KI gab eine seltsame oder nutzlose Antwort.</strong> Schreiben Sie uns bitte mit Ihrer Eingabe und der erhaltenen Antwort. Die KI-Prompts werden auf Basis echter Rückmeldungen iteriert.</li>
+      <li><strong>Kann ich eine Notiz bearbeiten oder löschen?</strong> Ja. Sowohl in der Today-Ansicht als auch im Detail eines Eintrags sind beide möglich.</li>
+      <li><strong>Werden meine Gewohnheitsnamen / Journaltexte zum Training der KI verwendet?</strong> Nein. Wir senden bei jedem KI-Aufruf (Zielverkleinerung, Anker-Vorschlag, Coach-Check, Monatsrückblick) nur das Minimum an Daten an unseren KI-Anbieter (MiniMax). Laut unserer Vereinbarung werden diese Daten nicht für Modelltraining genutzt. Siehe <a href="privacy.html">Datenschutzerklärung</a>.</li>
+    </ul>
+
+    <h2>Bekannte Einschränkungen und Roadmap</h2>
+    <ul>
+      <li>v1.0 unterstützt ausschließlich das iPhone — kein iPad, Mac oder Vision Pro. Plattformerweiterung ist auf der Roadmap, ohne festen Termin.</li>
+      <li>In dieser Version gibt es kein Kontosystem, keine geräteübergreifende Synchronisation und keinen Datenexport. Diese Funktionen folgen mit Pro.</li>
+      <li>Der Monatsrückblick liegt in v1.0 nur als Text vor; eine teilbare visuelle Karte ist eine geplante Pro-Funktion.</li>
+    </ul>
+
+    <h2>Datenschutz</h2>
+    <p>Siehe <a href="privacy.html">Datenschutzerklärung</a>.</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
