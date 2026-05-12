@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — Support</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 24px; font-size: 0.9375rem; }
+    .intro { margin: 0 0 48px; font-size: 1.0625rem; color: #333; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    ul, ol { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    .contact-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 16px;
+    }
+    .contact-box .hint { margin: 0 0 12px; color: #333; }
+    .contact-box .email { margin: 0 0 16px; font-size: 1.125rem; font-weight: 600; }
+    .contact-box .email a { text-decoration: none; }
+    .contact-box .email a:hover { text-decoration: underline; }
+    .contact-box .response { margin: 0; color: var(--muted); font-size: 0.9375rem; }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="lang-group">
+        <a href="../" class="lang-toggle">中文</a>
+        <span class="lang-toggle active">English</span>
+      </div>
+    </div>
+
+    <h1>Habitoo — Support</h1>
+    <p class="meta">Last updated: 2026-05-12 · Version 1.0</p>
+
+    <p class="intro">
+      Habitoo is an AI habit coach for iPhone. You tell it what you want to do, and the AI shrinks the goal down to a version
+      you'll actually do tonight. It anchors the habit to a moment you already pass through. On the 1st of every month, it writes you
+      a review built from the dates and notes you yourself logged — no pep talks, just your own evidence.
+      This page provides technical support information, common questions, and contact details.
+    </p>
+
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+      <p class="hint">For questions, bug reports, or feedback, please email:</p>
+      <p class="email"><a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a></p>
+      <p class="response">We typically reply within 1–2 business days.</p>
+    </div>
+
+    <h2>System Requirements</h2>
+    <ul>
+      <li><strong>Device:</strong> iPhone</li>
+      <li><strong>OS:</strong> iOS 17.4 or later</li>
+      <li><strong>Network:</strong> AI features (goal shrinking, anchor suggestions, monthly review) require an internet connection. Other features work offline.</li>
+    </ul>
+
+    <h2>Getting Started</h2>
+    <ol>
+      <li>Open the app and type the habit you want to build ("read more," "stretch," "meditate").</li>
+      <li>The AI gives you four micro-starts — from a 30-second tiny action to a 5-minute full micro-habit. Pick one <strong>you could do tonight without hesitating</strong>.</li>
+      <li>Choose an anchor (a moment to bind the habit to): either a fixed time (e.g. 07:30) or an existing action (e.g. "after your morning coffee").</li>
+      <li>When the anchor moment arrives you'll get a local notification. Mark it done in Today view, optionally write a note about how it felt.</li>
+      <li>On the 1st of every month the app automatically generates a review of the previous month — citing the dates and notes you wrote, calling out the best week and the failure patterns.</li>
+    </ol>
+
+    <h2>Common Questions</h2>
+    <ul>
+      <li><strong>I don't like the micro-goals AI suggested — what do I do?</strong> Pick the smallest one you'd never refuse, even if it feels almost trivial. Want a different angle? Go back to the goal input page and rephrase your habit. You can also adjust the micro-goal manually inside the app at any time.</li>
+      <li><strong>I'm not receiving anchor reminders.</strong> Check notification permission: iOS Settings → Habitoo → Notifications → Allow Notifications. If your anchor is an "existing action" type (not a fixed time), no notification is sent because the moment isn't on a schedule — open the app yourself after that action.</li>
+      <li><strong>When does the monthly review appear?</strong> Automatically on the 1st of every month. The previous month needs at least one completion to trigger generation. Generation takes a few seconds to half a minute; wait for the result to load.</li>
+      <li><strong>Why is there no "X-day streak" counter?</strong> By design. Research shows streak counters are the root cause of users quitting after a single miss — one broken day feels like total failure. Habitoo shows 30-day / 100-day success rate and a difficulty heatmap instead, so you see the shape rather than getting punished by a single number.</li>
+      <li><strong>Can I track more than one habit?</strong> The free version supports one habit with the full AI loop. Multi-habit support is part of the Pro version (in development). You can join the waitlist in Settings → Pro inside the app.</li>
+      <li><strong>Does it sync to iCloud?</strong> Not in this version. All data is stored locally on your device. Cross-device sync is a planned Pro feature.</li>
+      <li><strong>What happens to my data if I uninstall?</strong> Local data (habits, completions, notes) is removed by iOS when you uninstall. Your waitlist email (if you submitted one) is stored on our backend — email us to delete it.</li>
+      <li><strong>The AI gave me a strange or unhelpful answer.</strong> Please email us with the input you typed and the response you got. The AI prompts get iterated based on real feedback like this.</li>
+      <li><strong>Can I edit or delete a journal entry?</strong> Yes. In Today view or in the completion record detail, both are editable and deletable.</li>
+      <li><strong>Will my habit names / journal text be used to train AI models?</strong> No. We send only the minimum data needed for each AI call (goal shrinking, anchor suggestion, coach check, monthly review) to our AI provider (MiniMax). Their terms specify that this data is not used for training. See the <a href="privacy.html">Privacy Policy</a>.</li>
+    </ul>
+
+    <h2>Known Limitations and Roadmap</h2>
+    <ul>
+      <li>v1.0 supports iPhone only — no iPad, Mac, or Vision Pro yet. Multi-platform is on the roadmap, timing TBD.</li>
+      <li>No account system, no cross-device sync, no data export in this version. These will roll out with Pro.</li>
+      <li>Monthly review is text-only in v1.0; a shareable visual card is a planned Pro feature.</li>
+    </ul>
+
+    <h2>Privacy</h2>
+    <p>See the <a href="privacy.html">Privacy Policy</a>.</p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

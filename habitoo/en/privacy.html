@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habitoo — Privacy Policy</title>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --accent: #0066cc;
+      --border: #d2d2d7;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans", "Noto Sans JP", "Apple SD Gothic Neo", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 32px 64px; }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .breadcrumb { color: var(--muted); font-size: 0.9375rem; }
+    .breadcrumb a { color: var(--accent); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .lang-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .lang-toggle {
+      font-size: 0.8125rem;
+      color: var(--text);
+      text-decoration: none;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: background 0.15s ease;
+    }
+    .lang-toggle:hover:not(.active) { background: var(--surface); }
+    .lang-toggle.active {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+      cursor: default;
+    }
+    h1 { font-size: 2.25rem; margin: 0 0 12px; letter-spacing: -0.02em; font-weight: 700; }
+    .meta { color: var(--muted); margin: 0 0 48px; font-size: 0.9375rem; }
+    h2 { margin-top: 48px; margin-bottom: 16px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+    h3 { margin-top: 24px; margin-bottom: 8px; font-size: 1.0625rem; font-weight: 600; }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: var(--accent); }
+    code {
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+      font-size: 0.875em;
+      background: rgba(0, 0, 0, 0.05);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 64px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <div class="breadcrumb">
+        <a href="./">&larr; Support</a>
+      </div>
+      <div class="lang-group">
+        <a href="../privacy.html" class="lang-toggle">中文</a>
+        <span class="lang-toggle active">English</span>
+      </div>
+    </div>
+
+    <h1>Habitoo — Privacy Policy</h1>
+    <p class="meta">Last updated: 2026-05-12 · Version 1.0</p>
+
+    <h2>Overview</h2>
+    <p>
+      Habitoo is an AI habit coach for iPhone. We follow the principle of <strong>data minimization</strong>:
+      the vast majority of your habit data stays on your device. We only send the minimum data required to our backend
+      and AI provider when you actively trigger an AI feature (goal shrinking, anchor suggestions, monthly review).
+      This page describes every data flow honestly, without hiding any of it.
+    </p>
+
+    <h2>Data Stored Locally</h2>
+    <p>The following data lives only on your device and never leaves your phone, unless you trigger one of the AI or reporting features described below:</p>
+    <ul>
+      <li><strong>Habit definitions</strong> (habit name, micro-goal text, anchor type and value, difficulty level): SwiftData (local SQLite)</li>
+      <li><strong>Completion records</strong> (status, timestamp, journal note text for each day): SwiftData</li>
+      <li><strong>Monthly review results</strong> (cached locally after generation, for offline access to history): SwiftData</li>
+      <li><strong>App settings</strong> (reminder preferences, etc.): UserDefaults</li>
+      <li><strong>Local notification schedules</strong> (anchor reminders): scheduled via iOS Notification Center, no cloud scheduling</li>
+    </ul>
+
+    <h2>Data Sent to Our Backend</h2>
+    <p>
+      Our backend is hosted on Cloudflare Workers, with Cloudflare D1 storing analytics events and the waitlist.
+      The app sends HTTPS requests to our backend in the following situations:
+    </p>
+
+    <h3>AI Goal Shrinking / Anchor Suggestions / Coach Check / Monthly Review</h3>
+    <p>When you trigger one of these AI features, the app sends the following over HTTPS to our backend, which forwards the request to our AI provider (MiniMax) for inference:</p>
+    <ul>
+      <li>Goal shrinking: the habit text you typed + your locale + names of habits you already track</li>
+      <li>Anchor suggestions: habit text, the micro-goal you selected, locale</li>
+      <li>Coach check: habit context, last ~7 days of completion statuses, recent journal entries (text + sentiment tag)</li>
+      <li>Monthly review: all of the month's habit names, all completion records (date, status, journal text), locale</li>
+    </ul>
+    <p>
+      These requests <strong>do not</strong> carry your name, email, device ID, or any direct personal identifier
+      (your IP address is retained for ~30 days by Cloudflare edge logs for abuse detection and rate-limiting only).
+      The AI inference result is returned synchronously to the app and saved locally; we do not persist your AI inputs or outputs on the backend.
+    </p>
+
+    <h3>Analytics Events</h3>
+    <p>To assess app retention and feature usage, the app sends analytics events in the following situations:</p>
+    <ul>
+      <li>Event types: app open, AI call requested, micro-goal selected, anchor selected, habit created, habit completed, monthly review viewed, Pro upsell shown/clicked, waitlist submitted</li>
+      <li>Each event carries: device ID (iOS IDFV — a random ID assigned by iOS scoped to this app, reset on uninstall), event name, event properties (a few boolean/string fields), locale, app version, timestamp, app identifier</li>
+      <li>Does <strong>not</strong> carry: your name, email, habit names, journal text, or AI response content</li>
+    </ul>
+    <p>Analytics events are stored in Cloudflare D1 (APAC region) and are queryable only by the app author.</p>
+
+    <h3>Pro Waitlist Email (Optional)</h3>
+    <p>
+      We collect the following only when you actively submit your email in the in-app Pro waitlist (Settings page):
+      email, source label (e.g. <code>pro_upsell_settings</code>), device ID, locale, user agent, timestamp.
+      These are used to: notify you when Pro launches, and to send a 50% early-bird discount to the first 200 sign-ups.
+      Beyond that, we will not use them for any other marketing or third-party purpose.
+    </p>
+
+    <h2>Sub-Processors</h2>
+    <p>Habitoo relies on the following third-party services, all communicated with via encrypted HTTPS:</p>
+    <ul>
+      <li><strong>Cloudflare</strong> (Workers + D1 + Pages) — executes our backend logic, stores analytics events and waitlist data. Cloudflare does not access request content for its own use; it acts purely as an infrastructure provider.</li>
+      <li><strong>MiniMax</strong> (AI model service) — processes goal shrinking, anchor suggestions, coach check, and monthly review inference requests. Per our agreement with MiniMax, user data is not used for model training.</li>
+    </ul>
+
+    <h2>What We Do Not Do</h2>
+    <ul>
+      <li>No third-party <strong>analytics SDK</strong> (no Firebase Analytics, no Mixpanel, no GA, no AppsFlyer)</li>
+      <li>No third-party <strong>crash reporting SDK</strong> (no Sentry, no Crashlytics)</li>
+      <li>No <strong>advertising SDKs</strong>; we show no ads and track no cross-app behavior</li>
+      <li>We do not request the <strong>IDFA</strong> (Identifier for Advertisers) permission</li>
+      <li>We do not request access to photos, location, contacts, calendar, or Health data</li>
+      <li>We do not send any <strong>remote push notifications</strong> (only local notifications)</li>
+      <li>We do not share data with <strong>data brokers</strong></li>
+    </ul>
+
+    <h2>Data Retention and Deletion</h2>
+    <ul>
+      <li><strong>Local data:</strong> follows iOS lifecycle — removed automatically when you uninstall the app.</li>
+      <li><strong>Analytics events:</strong> retained indefinitely during MVP validation; a formal retention/deletion policy is on the roadmap. To delete your analytics data immediately, email us with your device IDFV (visible in Settings at the bottom of the app); we will remove it within 7 business days.</li>
+      <li><strong>Waitlist email:</strong> retained until we send the Pro launch invitation, or removed immediately on your request. If Pro is never launched, we will purge the data when the product is shut down.</li>
+    </ul>
+
+    <h2>Children's Privacy</h2>
+    <p>
+      Habitoo is not designed for, and we do not knowingly collect any data from, children under the age of 13.
+      If you believe a child has used the app and submitted any data without permission, please email us to remove it.
+    </p>
+
+    <h2>Policy Changes</h2>
+    <p>
+      If this Privacy Policy changes in the future, we will update this page and change the "Last updated" date at the top.
+      Material changes (such as new data collection categories) will be announced inside the app.
+      We recommend reviewing this page periodically.
+    </p>
+
+    <h2>Contact Us</h2>
+    <p>
+      If you have any questions about this Privacy Policy, want to export or delete your data, or want to learn more about
+      how Cloudflare or MiniMax handle your data, please email:
+      <a href="mailto:freezing.myfriend@gmail.com">freezing.myfriend@gmail.com</a>
+    </p>
+
+    <footer>
+      <p>&copy; 2026 FreezingCC. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
